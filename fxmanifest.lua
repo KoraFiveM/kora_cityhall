@@ -1,0 +1,18 @@
+fx_version 'cerulean'
+game 'gta5'
+lua54 'yes'
+use_fxv2_oal 'yes'
+author 'Kakarot'
+description 'Allows players to purchase id cards and licenses or change their job'
+version '2.2.0'
+
+shared_scripts {
+    '@qblib/init.lua',
+    'shared/**.lua'
+}
+
+server_script 'server/**.lua'
+
+client_scripts {
+    'client/**.lua'
+}
