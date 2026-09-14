@@ -6,6 +6,8 @@ author 'Kakarot'
 description 'Allows players to purchase id cards and licenses or change their job'
 version '2.2.0'
 
+dependency 'qblib'
+
 shared_scripts {
     '@qblib/init.lua',
     'shared/**.lua'
