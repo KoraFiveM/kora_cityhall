@@ -25,10 +25,13 @@ local function returnItemData(itemName, price, meta)
     local array = {}
     for _, v in ipairs(item) do
         array[v] = {
-            label = Items[v].label,
+            label = Items[v] and Items[v].label or 'Missing item',
             price = price,
             metadata = meta or nil
         }
+        if array[v].label == 'Missing item' then
+            array[v] = nil
+        end
     end
     return array
 end
