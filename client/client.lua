@@ -6,7 +6,7 @@ local function openIdentityMenu(key)
     for license, data in pairs(Config.Cityhalls[key].licenses) do
         table.insert(identityMenu, {
             header = data.label,
-            txt = QB.lang('menus.license_cost', data.cost),
+            txt = QB.lang('menus.license_cost', data.price),
             action = function()
                TriggerServerEvent('qb-cityhall:server:purchaseID', key, license)
            end
@@ -24,7 +24,7 @@ local function openJobMenu(key)
             header = jobData.label,
             txt = QB.lang('menus.apply_job'),
             action = function()
-                TriggerServerEvent('qb-cityhall:server:applyJob', key, jobName)
+                TriggerServerEvent('qb-cityhall:server:ApplyJob', key, jobName)
             end
         })
     end

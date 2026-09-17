@@ -61,14 +61,24 @@ RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
     local itemInfo = cityhall.licenses[license]
     local info = getLicenseInfo(Player, license)
 
-    if not Player.RemoveMoney('cash', itemInfo.cost, 'cityhall id') then
+    local price = tonumber(itemInfo.price) or 0
+    if price <= 0 then
+        return QB.notify.send(src, { title = 'qb-cityhall', message = 'This licence is unavailable.', type = 'error' })
+    end
+    if not exports['qb-inventory']:CanAddItem(src, license, 1) then
+        return QB.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
+    end
+    if not Player.RemoveMoney('cash', price, 'cityhall id') then
         return QB.notify.send(src, {
             title = 'qb-cityhall',
-            message = QB.lang('notify.no_cash', itemInfo.cost),
+            message = QB.lang('notify.no_cash', price),
             type = 'error'
         })
     end
-    exports['qb-inventory']:AddItem( src, license, 1, false, info, 'qb-cityhall:purchaseID')
+    if not exports['qb-inventory']:AddItem(src, license, 1, false, info, 'qb-cityhall:purchaseID') then
+        Player.AddMoney('cash', price, 'cityhall id refund')
+        return QB.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
+    end
 end)
 
 
