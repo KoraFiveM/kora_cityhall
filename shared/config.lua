@@ -51,3 +51,6 @@ Config.Cityhalls = {
         licenses = returnItemData('id_card', 50),
     },
 }
+
+-- Registers this resource-owned configuration with qblib.
+Config = QB.config.adopt(Config)
