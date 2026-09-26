@@ -21,5 +21,7 @@ return {
         id_card = 'ID Card',
         id_card_desc = 'Get your ID Card',
         job_center_desc = 'Available Jobs',
+        purchase = 'Purchase',
+        apply = 'Apply',
     }
 }

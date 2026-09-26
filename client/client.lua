@@ -1,59 +1,115 @@
 
-local function openIdentityMenu(key)
-    local identityMenu = {
-        {header = 'Identity', isMenuHeader = true},
-    }
+local APP_ID = 'qb-cityhall:kiosk'
+
+local function buildIdentityItems(key)
+    local items = {}
     for license, data in pairs(Config.Cityhalls[key].licenses) do
-        table.insert(identityMenu, {
-            header = data.label,
-            txt = QB.lang('menus.license_cost', data.price),
-            action = function()
-               TriggerServerEvent('qb-cityhall:server:purchaseID', key, license)
-           end
+        local item = exports.qbcore:getShared('items', license)
+        table.insert(items, {
+            id = license,
+            label = item.label,
+            description = QB.lang('menus.license_cost', data.price),
+            image = 'nui://qbinventory/images/' .. item.image,
+            action = {
+                id = 'purchase:' .. license,
+                label = QB.lang('menus.purchase') or 'Purchase',
+                variant = 'primary',
+            },
         })
     end
-    exports['qb-menu']:openMenu(identityMenu)
+    return items
 end
 
-local function openJobMenu(key)
-    local jobMenu = {
-        { header = QB.lang('menus.job_center'), isMenuHeader = true }
-    }
+local function buildJobItems()
+    local items = {}
     for jobName, jobData in pairs(Config.Jobs) do
-        table.insert(jobMenu, {
-            header = jobData.label,
-            txt = QB.lang('menus.apply_job'),
-            action = function()
-                TriggerServerEvent('qb-cityhall:server:ApplyJob', key, jobName)
-            end
+        local image = Config.JobImages and Config.JobImages[jobName]
+        table.insert(items, {
+            id = jobName,
+            label = jobData.label,
+            description = QB.lang('menus.apply_job'),
+            icon = 'Briefcase' or nil,
+            action = {
+                id = 'apply:' .. jobName,
+                label = QB.lang('menus.apply') or 'Apply',
+                variant = 'primary',
+            },
         })
     end
-    exports['qb-menu']:openMenu(jobMenu)
+    return items
 end
 
-local function openCityhallMenu(key)
-    exports['qb-menu']:openMenu({
-        { header = QB.lang('menus.city_hall'), isMenuHeader = true},
+local function buildNavigation(key)
+    return {
         {
-            header = QB.lang('menus.id_card'),
-            txt = QB.lang('menus.id_card_desc'),
-            action = function()
-                openIdentityMenu(key)
-            end
+            id = 'identity',
+            label = QB.lang('menus.id_card'),
+            icon = 'IdCard',
+            content = {
+                title = QB.lang('menus.id_card'),
+                description = QB.lang('menus.id_card_desc'),
+                blocks = {
+                    { type = 'list', layout = 'cards', items = buildIdentityItems(key) },
+                },
+            },
         },
         {
-            header = QB.lang('menus.job_center'),
-            txt = QB.lang('menus.job_center_desc'),
-            action = function()
-                openJobMenu(key)
-            end
+            id = 'jobs',
+            label = QB.lang('menus.job_center'),
+            icon = 'Briefcase',
+            content = {
+                title = QB.lang('menus.job_center'),
+                description = QB.lang('menus.job_center_desc'),
+                blocks = {
+                    { type = 'list', layout = 'cards', items = buildJobItems() },
+                },
+            },
         },
+    }
+end
+
+local function onAppAction(actionId, context)
+    local key = context.data and context.data.key
+    if not key then return end
+
+    local license = actionId:match('^purchase:(.+)$')
+    if license then
+        TriggerServerEvent('qb-cityhall:server:purchaseID', key, license)
+        return
+    end
+
+    local jobName = actionId:match('^apply:(.+)$')
+    if jobName then
+        TriggerServerEvent('qb-cityhall:server:ApplyJob', key, jobName)
+    end
+end
+
+local function registerCityhallApp(initialKey)
+    QB.nui.registerApp({
+        id = APP_ID,
+        title = QB.lang('menus.city_hall'),
+        icon = 'Landmark',
+        layout = 'compact',
+        defaultView = 'identity',
+        placement = 'right',
+        navigation = buildNavigation(initialKey),
+        onAction = onAppAction,
     })
 end
 
+local function openCityhallMenu(key)
+    QB.nui.updateApp(APP_ID, { navigation = buildNavigation(key) })
+    QB.nui.openApp(APP_ID, { data = { key = key } })
+end
+
 local function init()
+    local initialKey = next(Config.Cityhalls)
+    if not initialKey then return end
+    registerCityhallApp(initialKey)
+
     for key, cityhall in pairs(Config.Cityhalls) do
         local ped = QB.entities.create(cityhall.ped or 'a_m_m_hasjew_01', cityhall.coords, {freeze = true, invincible = true})
+        SetEntityHeading(ped, cityhall.coords.w)
         TaskStartScenarioInPlace(ped, cityhall.scenario or 'WORLD_HUMAN_STAND_MOBILE', 0, true)
         if cityhall.blipData then
             QB.blips.create(cityhall.coords, {
