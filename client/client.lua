@@ -16,9 +16,9 @@ local function buildIdentityItems(key)
         local item = exports.qbcore:getShared('items', license)
         table.insert(items, {
             id = license,
-            label = item and item.label or data.label,
+            label = item and item.label or license,
             description = QB.lang('menus.license_cost', data.price),
-            image = 'nui://qbinventory/images/' .. (item and item.image or data.image),
+            image = 'nui://qbinventory/images/' .. (item and item.image or 'default'),
             action = {
                 id = 'purchase:' .. license,
                 label = QB.lang('menus.purchase') or 'Purchase',
@@ -31,10 +31,11 @@ end
 
 local function buildJobItems()
     local items = {}
-    for jobName, jobData in pairs(Config.Jobs) do
+    for jobName, jobData in pairs(Config.AvailableJobs) do
+        local job = exports.qbcore:getShared('jobs', jobName)
         table.insert(items, {
             id = jobName,
-            label = jobData.label,
+            label = job and job.label or jobName,
             description = QB.lang('menus.apply_job'),
             icon = 'Briefcase' or nil,
             action = {
@@ -87,6 +88,7 @@ local function onAppAction(actionId, context)
     end
 
     local jobName = actionId:match('^apply:(.+)$')
+    print(jobName or 'nil')
     if jobName then
         TriggerServerEvent('qb-cityhall:server:ApplyJob', key, jobName)
     end

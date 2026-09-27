@@ -84,10 +84,13 @@ end)
 
 RegisterNetEvent('qb-cityhall:server:ApplyJob', function(key, job)
     assert(source, QB.lang('asserts.src'))
-    assert(type(job) == 'string' and Config.Jobs[job], QB.lang('asserts.job_doesnt_exist', source, job))
+    assert(type(job) == 'string' and Config.AvailableJobs[job], QB.lang('asserts.job_doesnt_exist', source, job))
     assert(Config.Cityhalls[key], QB.lang('asserts.cityhall', source))
     assert(QB.distance.player(source, Config.Cityhalls[key].coords, 5.0), QB.lang('asserts.cityhall_too_far', source))
-    exports.qbmultijob:addJob(source, job, 1)
+    local src = source
+    if exports.qbmultijob:addJob(src, job, 1) then
+        QB.notify.send(src, { title = 'qb-cityhall', message = 'You have successfully applied for the job.', type = 'success' })
+    end
 end)
 
 RegisterNetEvent('qb-cityhall:server:getIDs', giveStarterItems)
