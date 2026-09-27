@@ -2,16 +2,23 @@
 local APP_ID = 'qb-cityhall:kiosk'
 
 local function buildIdentityItems(key)
-    if not key then return end
-    if not Config.Cityhalls[key] then return end
+    local tbl = nil
+    if not Config or not Config.Cityhalls[key] or not Config.Cityhalls[key].licenses then 
+        tbl = {
+            id_card = {label = 'id_card', price = 100, image = 'default'}
+        }
+    else
+        tbl = Config.Cityhalls[key].licenses
+    end
+
     local items = {}
-    for license, data in pairs(Config.Cityhalls[key].licenses) do
+    for license, data in pairs(tbl) do
         local item = exports.qbcore:getShared('items', license)
         table.insert(items, {
             id = license,
-            label = item.label,
+            label = item and item.label or data.label,
             description = QB.lang('menus.license_cost', data.price),
-            image = 'nui://qbinventory/images/' .. item.image,
+            image = 'nui://qbinventory/images/' .. (item and item.image or data.image),
             action = {
                 id = 'purchase:' .. license,
                 label = QB.lang('menus.purchase') or 'Purchase',
@@ -25,7 +32,6 @@ end
 local function buildJobItems()
     local items = {}
     for jobName, jobData in pairs(Config.Jobs) do
-        local image = Config.JobImages and Config.JobImages[jobName]
         table.insert(items, {
             id = jobName,
             label = jobData.label,
