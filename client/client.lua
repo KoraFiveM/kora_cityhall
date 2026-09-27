@@ -2,6 +2,8 @@
 local APP_ID = 'qb-cityhall:kiosk'
 
 local function buildIdentityItems(key)
+    if not key then return end
+    if not Config.Cityhalls[key] then return end
     local items = {}
     for license, data in pairs(Config.Cityhalls[key].licenses) do
         local item = exports.qbcore:getShared('items', license)
