@@ -1,25 +1,27 @@
 return {
     asserts = {
-        src = 'Źródło jest nil',
-        key = 'Gracz: %s | Klucz ratusza jest nil',
-        license = 'Gracz: %s | Licencja jest nil',
-        cityhall = 'Gracz: %s | Klucz ustawiony dla Config.Cityhalls nie istnieje',
-        no_licenses = 'Gracz: %s | Brak skonfigurowanych licencji dla tego ratusza',
-        license_config_missing = 'Gracz: %s | Brak konfiguracji licencji dla podanej licencji | %s',
-        cityhall_too_far = 'Gracz: %s | Gracz jest zbyt daleko od ratusza',
-        job_doesnt_exist = 'Gracz: %s | Praca: %s | nie istnieje w Config.Jobs'
+        src = 'Źródło: Nil',
+        key = 'Gracz: %s Xi124; Klucz Cityhall jest zerowy',
+        license = 'Gracz: %s',
+        cityhall = 'Gracz: %s XI124; Zestaw kluczy dla konfiguracji. Cityhalls nie istnieje',
+        no_licenses = 'Gracz: %s XI124; Brak licencji skonfigurowanych dla tego Cityhall',
+        license_config_missing = 'Gracz: %s Xi124; Brak konfiguracji licencji dla danej licencji %s',
+        cityhall_too_far = 'Gracz: %s Xi124; Gracz jest zbyt daleko od ratusza',
+        job_doesnt_exist = 'Gracz: %s Xi124; Job: %s Xi124; nie istnieje w konfiguracji. Miejsca pracy',
     },
     notify = {
-        no_cash = 'Nie masz przy sobie wystarczającej ilości pieniędzy, potrzebujesz %s gotówki'
+        no_cash = 'Nie masz pieniędzy, potrzebujesz gotówki %s',
     },
     menus = {
-        license_cost = 'Cena: %s $',
-        job_center = 'Urząd Pracy',
-        apply_job = 'Aplikuj na tę pracę',
+        license_cost = 'Cena: $ %s',
+        job_center = 'Centrum pracy',
+        apply_job = 'Zgłoś się do tej pracy',
         city_hall = 'Ratusz',
         city_hall_icon = 'fas fa-city',
-        id_card = 'Dowód Osobisty',
-        id_card_desc = 'Odbierz swój dowód osobisty',
-        job_center_desc = 'Dostępne prace',
-    }
+        id_card = 'Dokument tożsamości',
+        id_card_desc = 'Pobierz swój dowód osobisty',
+        job_center_desc = 'Dostępne miejsca pracy',
+        purchase = 'Zakup',
+        apply = 'Zastosuj',
+    },
 }

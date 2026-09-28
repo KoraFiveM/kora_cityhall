@@ -1,0 +1,27 @@
+return {
+    asserts = {
+        src = 'מקור: NIL',
+        key = '%s | מפתח Cityhall הוא nil',
+        license = '%s | רישיון הוא nil',
+        cityhall = 'שחקן: %s | Key Set for Config העירייה לא קיימת',
+        no_licenses = 'נגן: %s | Noרשיונות שנקבעו עבור העיר הזו',
+        license_config_missing = 'Player: %s | License configuration is missing for the given license | %s',
+        cityhall_too_far = 'שחקן: %s | שחקן רחוק מדי מהעיר',
+        job_doesnt_exist = 'נגן: %s | איוב: %s | אינו קיים בקונפדוג. משרות',
+    },
+    notify = {
+        no_cash = 'אין לך מספיק כסף, אתה צריך %s מזומנים',
+    },
+    menus = {
+        license_cost = 'מחיר: %s',
+        job_center = 'מרכז העבודה',
+        apply_job = 'החל על עבודה זו',
+        city_hall = 'העירייה Hall',
+        city_hall_icon = 'fas fa-city',
+        id_card = 'תעודת זהות',
+        id_card_desc = 'קבל את תעודת הזהות שלך',
+        job_center_desc = 'משרות זמינות',
+        purchase = 'רכישה',
+        apply = 'Apply',
+    },
+}

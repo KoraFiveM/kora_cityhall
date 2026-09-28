@@ -1,25 +1,27 @@
 return {
     asserts = {
-        src = 'La fuente es nil',
-        key = 'Jugador: %s | La clave del ayuntamiento es nil',
-        license = 'Jugador: %s | La licencia es nil',
-        cityhall = 'Jugador: %s | La clave establecida para Config.Cityhalls no existe',
-        no_licenses = 'Jugador: %s | No hay licencias configuradas para este ayuntamiento',
-        license_config_missing = 'Jugador: %s | Falta la configuración de la licencia para la licencia dada | %s',
-        cityhall_too_far = 'Jugador: %s | El jugador está demasiado lejos del ayuntamiento',
-        job_doesnt_exist = 'Jugador: %s | Trabajo: %s | no existe en Config.Jobs'
+        src = 'Fuente Is Nil',
+        key = 'Jugador: %s Silencio Cityhall clave es nil',
+        license = 'Jugador: %s Silencioso Licencia es nil',
+        cityhall = 'Jugador: %s tención Juego clave para Config. Los ayuntamientos no existen',
+        no_licenses = 'Jugador: %s Silencio No hay licencias configuradas para esta ciudadhall',
+        license_config_missing = 'Player: %s | License configuration is missing for the given license | %s',
+        cityhall_too_far = 'Jugador: %s Silencioso Jugador está muy lejos del ayuntamiento',
+        job_doesnt_exist = 'Jugador: %s tención Job: %s Silencio no existe en Config. Empleo',
     },
     notify = {
-        no_cash = 'No llevas suficiente dinero, necesitas %s en efectivo'
+        no_cash = 'No tienes suficiente dinero para ti, necesitas dinero %s',
     },
     menus = {
-        license_cost = 'Precio: %s $',
-        job_center = 'Centro de Empleo',
+        license_cost = 'Precio: $ %s',
+        job_center = 'Job Center',
         apply_job = 'Solicitar este trabajo',
         city_hall = 'Ayuntamiento',
         city_hall_icon = 'fas fa-city',
-        id_card = 'Tarjeta de Identidad',
-        id_card_desc = 'Obtener tu Tarjeta de Identidad',
+        id_card = 'Tarjeta de identificación',
+        id_card_desc = 'Consigue tu tarjeta de identificación',
         job_center_desc = 'Trabajos disponibles',
-    }
+        purchase = 'Compra',
+        apply = 'Aplicar',
+    },
 }
