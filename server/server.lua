@@ -32,14 +32,55 @@ local function getLicenseInfo(Player, license)
 end
 
 
+local starterClaims = {}
+
+local function isCurrentCharacter(src, citizenid)
+    local current = exports['qb-core']:GetPlayer(src)
+    return current and current.PlayerData.citizenid == citizenid
+end
+
 local function giveStarterItems()
     local src = source
+    if starterClaims[src] then return end
     local Player = exports['qb-core']:GetPlayer(src)
     if not Player then return end
-    for _, starterItem in pairs(QBCore.Shared.StarterItems) do
-        local item = starterItem.item
-        local info = getLicenseInfo(Player, item)
-        exports['qb-inventory']:AddItem( src, item, 1, false, info, 'qb-cityhall:giveStarterItems')
+    local remaining = Player.GetMetaData('starterItems')
+    if type(remaining) ~= 'table' then return end
+    local citizenid = Player.PlayerData.citizenid
+
+    starterClaims[src] = true
+    local changed = false
+    local ok, err = pcall(function()
+        for _, starterItem in pairs(QBCore.Shared.StarterItems) do
+            local item = starterItem.item
+            if remaining[item] == true then
+                if not isCurrentCharacter(src, citizenid) then return end
+                -- Inventory hooks can re-enter this event or save player data.
+                -- Consume this item first so neither can observe it as unclaimed.
+                remaining[item] = false
+                if not Player.SetMetaData('starterItems', remaining) then
+                    error('Unable to reserve starter item entitlement')
+                end
+                changed = true
+                if not isCurrentCharacter(src, citizenid) then return end
+                local info = getLicenseInfo(Player, item)
+                local added = exports['qb-inventory']:AddItem(src, item, 1, false, info, 'qb-cityhall:giveStarterItems')
+                if added == false then
+                    if not isCurrentCharacter(src, citizenid) then return end
+                    remaining[item] = true
+                    if not Player.SetMetaData('starterItems', remaining) then
+                        error('Unable to restore failed starter item entitlement')
+                    end
+                end
+            end
+        end
+    end)
+    local saved, saveErr = pcall(function()
+        if changed and isCurrentCharacter(src, citizenid) then Player.Save() end
+    end)
+    starterClaims[src] = nil
+    if not ok or not saved then
+        print(('[qb-cityhall] Starter item claim failed for %s: %s'):format(src, tostring(err or saveErr)))
     end
 end
 
