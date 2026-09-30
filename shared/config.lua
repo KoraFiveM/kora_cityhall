@@ -1,40 +1,14 @@
 Config = Config or {}
-local Jobs, Items = exports['qb-core']:GetShared('Jobs'), exports['qb-core']:GetShared('Items')
 Config.Jobs = {}
 Config.AvailableJobs = {
-    'trucker',
-    'taxi',
-    'tow',
-    'reporter',
-    'garbage',
-    'bus',
-    'hotdog'
+    trucker = true,
+    taxi = true,
+    tow = true,
+    reporter = true,
+    garbage = true,
+    bus = true,
+    hotdog = true,
 }
-
-for _, jobName in ipairs(Config.AvailableJobs) do
-    if Jobs[jobName] then
-        Config.Jobs[jobName] = {
-            job = jobName,
-            label = Jobs[jobName].label,
-        }
-    end
-end
-
-local function returnItemData(itemName, price, meta)
-    local item = {'id_card', 'driver_license', 'weaponlicense'}
-    local array = {}
-    for _, v in ipairs(item) do
-        array[v] = {
-            label = Items[v] and Items[v].label or 'Missing item',
-            price = price,
-            metadata = meta or nil,
-        }
-        if array[v].label == 'Missing item' then
-            array[v] = nil
-        end
-    end
-    return array
-end
 
 Config.Cityhalls = {
     {
@@ -48,7 +22,17 @@ Config.Cityhalls = {
             color = 0,
             title = 'City Services'
         },
-        licenses = returnItemData('id_card', 50, nil),
+        licenses = {
+            id_card = {
+                price = 50,
+            },
+            driver_license = {
+                price = 100,
+            },
+            weaponlicense = {
+                price = 200,
+            }
+        },
     },
 }
 

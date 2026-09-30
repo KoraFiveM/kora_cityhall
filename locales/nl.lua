@@ -1,25 +1,27 @@
 return {
     asserts = {
-        src = 'Bron is nil',
-        key = 'Speler: %s | Stadhuis sleutel is nil',
-        license = 'Speler: %s | Licentie is nil',
-        cityhall = 'Speler: %s | Sleutel ingesteld voor Config.Cityhalls bestaat niet',
-        no_licenses = 'Speler: %s | Geen licenties geconfigureerd voor dit stadhuis',
-        license_config_missing = 'Speler: %s | Licentieconfiguratie ontbreekt voor de opgegeven licentie | %s',
-        cityhall_too_far = 'Speler: %s | Speler is te ver van het stadhuis',
-        job_doesnt_exist = 'Speler: %s | Baan: %s | bestaat niet in Config.Jobs'
+        src = 'Bron Is Nil',
+        key = 'Speler: %s de sleutel van het stadhuis is nul',
+        license = 'Speler: %s Licentie is nul',
+        cityhall = 'Speler: %s Stadhuizen bestaan niet',
+        no_licenses = 'Speler: %s Geen licenties geconfigureerd voor dit stadhuis',
+        license_config_missing = 'Speler: %s Licentieconfiguratie ontbreekt voor de gegeven licentie %s',
+        cityhall_too_far = 'Speler: %s De speler is te ver van het stadhuis',
+        job_doesnt_exist = 'Player: %s | Job: %s | does not exist in Config.Jobs',
     },
     notify = {
-        no_cash = 'Je hebt niet genoeg geld op zak, je hebt %s contant nodig'
+        no_cash = 'Je hebt niet genoeg geld op je, je hebt %s cash nodig',
     },
     menus = {
-        license_cost = 'Prijs: %s $',
-        job_center = 'Arbeidsbureau',
-        apply_job = 'Solliciteer op deze baan',
+        license_cost = 'Prijs: $ %s',
+        job_center = 'Taakcentrum',
+        apply_job = 'Solliciteer voor deze taak',
         city_hall = 'Stadhuis',
         city_hall_icon = 'fas fa-city',
-        id_card = 'ID-kaart',
-        id_card_desc = 'Ontvang je ID-kaart',
+        id_card = 'Identiteitskaart',
+        id_card_desc = 'Haal je ID-kaart',
         job_center_desc = 'Beschikbare banen',
-    }
+        purchase = 'Aankoop',
+        apply = 'Toepassen',
+    },
 }

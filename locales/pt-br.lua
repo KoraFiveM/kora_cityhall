@@ -1,25 +1,27 @@
 return {
     asserts = {
-        src = 'A fonte é nil',
-        key = 'Jogador: %s | A chave da prefeitura é nil',
-        license = 'Jogador: %s | A licença é nil',
-        cityhall = 'Jogador: %s | A chave definida para Config.Cityhalls não existe',
-        no_licenses = 'Jogador: %s | Nenhuma licença configurada para esta prefeitura',
-        license_config_missing = 'Jogador: %s | A configuração da licença está faltando para a licença fornecida | %s',
-        cityhall_too_far = 'Jogador: %s | O jogador está muito longe da prefeitura',
-        job_doesnt_exist = 'Jogador: %s | Emprego: %s | não existe em Config.Jobs'
+        src = 'A Fonte é Nil',
+        key = '%s A chave da Cityhall é zero',
+        license = 'Player: %s | License is nil',
+        cityhall = '%s , chave de configuração. As prefeituras não existem',
+        no_licenses = '%s Nenhuma licença configurada para esta prefeitura',
+        license_config_missing = 'Player: %s | License configuration is missing for the given license | %s',
+        cityhall_too_far = '%s é muito longe da prefeitura',
+        job_doesnt_exist = '%s Trabalho %s Não existe em Config. Empregos',
     },
     notify = {
-        no_cash = 'Você não tem dinheiro suficiente com você, você precisa de %s em dinheiro'
+        no_cash = 'Você não tem dinheiro suficiente, você precisa de dinheiro %s',
     },
     menus = {
-        license_cost = 'Preço: %s $',
-        job_center = 'Agência de Empregos',
-        apply_job = 'Candidatar-se a esta vaga',
+        license_cost = 'Preço: $ %s',
+        job_center = 'Centro de Trabalho',
+        apply_job = 'Inscreva-se para este trabalho',
         city_hall = 'Prefeitura',
         city_hall_icon = 'fas fa-city',
-        id_card = 'Carteira de Identidade',
-        id_card_desc = 'Pegar sua Carteira de Identidade',
-        job_center_desc = 'Vagas disponíveis',
-    }
+        id_card = 'Cartão de Identidade',
+        id_card_desc = 'Pegue seu cartão de identidade',
+        job_center_desc = 'Empregos disponíveis',
+        purchase = 'Compra',
+        apply = 'Aplicar',
+    },
 }
