@@ -14,7 +14,7 @@ local function buildIdentityItems(key)
     local items = {}
     for license, data in pairs(tbl) do
         local item = exports.qbcore:getShared('items', license)
-        table.insert(items, {
+        items[#items + 1] = {
             id = license,
             label = item and item.label or license,
             description = QB.lang('menus.license_cost', data.price),
@@ -24,7 +24,7 @@ local function buildIdentityItems(key)
                 label = QB.lang('menus.purchase') or 'Purchase',
                 variant = 'primary',
             },
-        })
+        }
     end
     return items
 end
@@ -33,17 +33,17 @@ local function buildJobItems()
     local items = {}
     for jobName, jobData in pairs(Config.AvailableJobs) do
         local job = exports.qbcore:getShared('jobs', jobName)
-        table.insert(items, {
+        items[#items + 1] = {
             id = jobName,
             label = job and job.label or jobName,
             description = QB.lang('menus.apply_job'),
-            icon = 'Briefcase' or nil,
+            icon = 'Briefcase',
             action = {
                 id = 'apply:' .. jobName,
                 label = QB.lang('menus.apply') or 'Apply',
                 variant = 'primary',
             },
-        })
+        }
     end
     return items
 end
