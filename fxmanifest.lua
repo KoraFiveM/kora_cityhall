@@ -7,6 +7,7 @@ description 'Allows players to purchase id cards and licenses or change their jo
 version '2.2.0'
 
 dependency 'qblib'
+dependency 'qbcore'
 
 shared_scripts {
     '@qblib/init.lua',

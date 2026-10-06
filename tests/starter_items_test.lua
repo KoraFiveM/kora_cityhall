@@ -24,27 +24,21 @@ local starters = {
     driver_license = { item = 'driver_license', amount = 1 },
 }
 exports = {
-    ['qb-core'] = {
-        GetCoreObject = function() return { Shared = { StarterItems = starters } } end,
-        GetPlayer = function(_, src)
-            local data = players[src]
-            if not data then return nil end
-            return {
-                PlayerData = clone(data),
-                GetMetaData = function(key) return clone(players[src].metadata[key]) end,
-                SetMetaData = function(key, value)
-                    if failSet then return false end
-                    players[src].metadata[key] = clone(value)
-                    if onSet then onSet(src, key) end
-                    return true
-                end,
-                Save = function()
-                    saves = saves + 1
-                    if failSave then error('save export failed') end
-                    saved[src] = clone(players[src])
-                    return true
-                end,
-            }
+    qbcore = {
+        getStarterItems = function() return starters end,
+        getPlayerData = function(_, src) return clone(players[src]) end,
+        getMetaData = function(_, src, key) return clone(players[src].metadata[key]) end,
+        setMetaData = function(_, src, key, value)
+            if failSet then return false end
+            players[src].metadata[key] = clone(value)
+            if onSet then onSet(src, key) end
+            return true
+        end,
+        savePlayer = function(_, src)
+            saves = saves + 1
+            if failSave then error('save export failed') end
+            saved[src] = clone(players[src])
+            return true
         end,
     },
     ['qb-inventory'] = {

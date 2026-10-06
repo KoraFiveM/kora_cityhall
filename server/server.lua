@@ -1,10 +1,8 @@
-local QBCore = exports['qb-core']:GetCoreObject({'Shared'})
-
 local function getLicenseInfo(Player, license)
-    local charinfo = Player.PlayerData.charinfo
+    local charinfo = Player.charinfo
     if license == 'id_card' then
         return {
-            citizenid = Player.PlayerData.citizenid,
+            citizenid = Player.citizenid,
             firstname = charinfo.firstname,
             lastname = charinfo.lastname,
             birthdate = charinfo.birthdate,
@@ -35,30 +33,30 @@ end
 local starterClaims = {}
 
 local function isCurrentCharacter(src, citizenid)
-    local current = exports['qb-core']:GetPlayer(src)
-    return current and current.PlayerData.citizenid == citizenid
+    local current = exports.qbcore:getPlayerData(src)
+    return current and current.citizenid == citizenid
 end
 
 local function giveStarterItems()
     local src = source
     if starterClaims[src] then return end
-    local Player = exports['qb-core']:GetPlayer(src)
+    local Player = exports.qbcore:getPlayerData(src)
     if not Player then return end
-    local remaining = Player.GetMetaData('starterItems')
+    local remaining = exports.qbcore:getMetaData(src, 'starterItems')
     if type(remaining) ~= 'table' then return end
-    local citizenid = Player.PlayerData.citizenid
+    local citizenid = Player.citizenid
 
     starterClaims[src] = true
     local changed = false
     local ok, err = pcall(function()
-        for _, starterItem in pairs(QBCore.Shared.StarterItems) do
+        for _, starterItem in pairs(exports.qbcore:getStarterItems()) do
             local item = starterItem.item
             if remaining[item] == true then
                 if not isCurrentCharacter(src, citizenid) then return end
                 -- Inventory hooks can re-enter this event or save player data.
                 -- Consume this item first so neither can observe it as unclaimed.
                 remaining[item] = false
-                if not Player.SetMetaData('starterItems', remaining) then
+                if not exports.qbcore:setMetaData(src, 'starterItems', remaining) then
                     error('Unable to reserve starter item entitlement')
                 end
                 changed = true
@@ -68,7 +66,7 @@ local function giveStarterItems()
                 if added == false then
                     if not isCurrentCharacter(src, citizenid) then return end
                     remaining[item] = true
-                    if not Player.SetMetaData('starterItems', remaining) then
+                    if not exports.qbcore:setMetaData(src, 'starterItems', remaining) then
                         error('Unable to restore failed starter item entitlement')
                     end
                 end
@@ -76,7 +74,7 @@ local function giveStarterItems()
         end
     end)
     local saved, saveErr = pcall(function()
-        if changed and isCurrentCharacter(src, citizenid) then Player.Save() end
+        if changed and isCurrentCharacter(src, citizenid) then exports.qbcore:savePlayer(src) end
     end)
     starterClaims[src] = nil
     if not ok or not saved then
@@ -96,7 +94,7 @@ RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
     assert(cityhall.licenses[license], QB.lang('asserts.license_config_missing', src, license))
     assert(QB.distance.player(src, cityhall.coords, 5.0), QB.lang('asserts.cityhall_too_far', src))
 
-    local Player = exports['qb-core']:GetPlayer(src)
+    local Player = exports.qbcore:getPlayerData(src)
     if not Player then return end
 
     local itemInfo = cityhall.licenses[license]
@@ -109,7 +107,7 @@ RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
     if not exports['qb-inventory']:CanAddItem(src, license, 1) then
         return QB.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
     end
-    if not Player.RemoveMoney('cash', price, 'cityhall id') then
+    if not exports.qbcore:removeMoney(src, 'cash', price, 'cityhall id') then
         return QB.notify.send(src, {
             title = 'qb-cityhall',
             message = QB.lang('notify.no_cash', price),
@@ -117,7 +115,7 @@ RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
         })
     end
     if not exports['qb-inventory']:AddItem(src, license, 1, false, info, 'qb-cityhall:purchaseID') then
-        Player.AddMoney('cash', price, 'cityhall id refund')
+        exports.qbcore:addMoney(src, 'cash', price, 'cityhall id refund')
         return QB.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
     end
 end)
