@@ -33,30 +33,30 @@ end
 local starterClaims = {}
 
 local function isCurrentCharacter(src, citizenid)
-    local current = exports.qbcore:getPlayerData(src)
+    local current = exports.kora_core:getPlayerData(src)
     return current and current.citizenid == citizenid
 end
 
 local function giveStarterItems()
     local src = source
     if starterClaims[src] then return end
-    local Player = exports.qbcore:getPlayerData(src)
+    local Player = exports.kora_core:getPlayerData(src)
     if not Player then return end
-    local remaining = exports.qbcore:getMetaData(src, 'starterItems')
+    local remaining = exports.kora_core:getMetaData(src, 'starterItems')
     if type(remaining) ~= 'table' then return end
     local citizenid = Player.citizenid
 
     starterClaims[src] = true
     local changed = false
     local ok, err = pcall(function()
-        for _, starterItem in pairs(exports.qbcore:getStarterItems()) do
+        for _, starterItem in pairs(exports.kora_core:getStarterItems()) do
             local item = starterItem.item
             if remaining[item] == true then
                 if not isCurrentCharacter(src, citizenid) then return end
                 -- Inventory hooks can re-enter this event or save player data.
                 -- Consume this item first so neither can observe it as unclaimed.
                 remaining[item] = false
-                if not exports.qbcore:setMetaData(src, 'starterItems', remaining) then
+                if not exports.kora_core:setMetaData(src, 'starterItems', remaining) then
                     error('Unable to reserve starter item entitlement')
                 end
                 changed = true
@@ -66,7 +66,7 @@ local function giveStarterItems()
                 if added == false then
                     if not isCurrentCharacter(src, citizenid) then return end
                     remaining[item] = true
-                    if not exports.qbcore:setMetaData(src, 'starterItems', remaining) then
+                    if not exports.kora_core:setMetaData(src, 'starterItems', remaining) then
                         error('Unable to restore failed starter item entitlement')
                     end
                 end
@@ -74,7 +74,7 @@ local function giveStarterItems()
         end
     end)
     local saved, saveErr = pcall(function()
-        if changed and isCurrentCharacter(src, citizenid) then exports.qbcore:savePlayer(src) end
+        if changed and isCurrentCharacter(src, citizenid) then exports.kora_core:savePlayer(src) end
     end)
     starterClaims[src] = nil
     if not ok or not saved then
@@ -94,7 +94,7 @@ RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
     assert(cityhall.licenses[license], QB.lang('asserts.license_config_missing', src, license))
     assert(QB.distance.player(src, cityhall.coords, 5.0), QB.lang('asserts.cityhall_too_far', src))
 
-    local Player = exports.qbcore:getPlayerData(src)
+    local Player = exports.kora_core:getPlayerData(src)
     if not Player then return end
 
     local itemInfo = cityhall.licenses[license]
@@ -107,7 +107,7 @@ RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
     if not exports['qb-inventory']:CanAddItem(src, license, 1) then
         return QB.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
     end
-    if not exports.qbcore:removeMoney(src, 'cash', price, 'cityhall id') then
+    if not exports.kora_core:removeMoney(src, 'cash', price, 'cityhall id') then
         return QB.notify.send(src, {
             title = 'qb-cityhall',
             message = QB.lang('notify.no_cash', price),
@@ -115,7 +115,7 @@ RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
         })
     end
     if not exports['qb-inventory']:AddItem(src, license, 1, false, info, 'qb-cityhall:purchaseID') then
-        exports.qbcore:addMoney(src, 'cash', price, 'cityhall id refund')
+        exports.kora_core:addMoney(src, 'cash', price, 'cityhall id refund')
         return QB.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
     end
 end)
@@ -127,7 +127,7 @@ RegisterNetEvent('qb-cityhall:server:ApplyJob', function(key, job)
     assert(Config.Cityhalls[key], QB.lang('asserts.cityhall', source))
     assert(QB.distance.player(source, Config.Cityhalls[key].coords, 5.0), QB.lang('asserts.cityhall_too_far', source))
     local src = source
-    if exports.qbmultijob:addJob(src, job, 1) then
+    if exports.kora_multijob:addJob(src, job, 1) then
         QB.notify.send(src, { title = 'qb-cityhall', message = 'You have successfully applied for the job.', type = 'success' })
     end
 end)

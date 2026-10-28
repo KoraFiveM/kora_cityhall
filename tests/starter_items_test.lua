@@ -24,7 +24,7 @@ local starters = {
     driver_license = { item = 'driver_license', amount = 1 },
 }
 exports = {
-    qbcore = {
+    kora_core = {
         getStarterItems = function() return starters end,
         getPlayerData = function(_, src) return clone(players[src]) end,
         getMetaData = function(_, src, key) return clone(players[src].metadata[key]) end,

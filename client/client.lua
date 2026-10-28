@@ -13,12 +13,12 @@ local function buildIdentityItems(key)
 
     local items = {}
     for license, data in pairs(tbl) do
-        local item = exports.qbcore:getShared('items', license)
+        local item = exports.kora_core:getShared('items', license)
         items[#items + 1] = {
             id = license,
             label = item and item.label or license,
             description = QB.lang('menus.license_cost', data.price),
-            image = 'nui://qbinventory/images/' .. (item and item.image or 'default'),
+            image = 'nui://kora_inventory/images/' .. (item and item.image or 'default'),
             action = {
                 id = 'purchase:' .. license,
                 label = QB.lang('menus.purchase') or 'Purchase',
@@ -32,7 +32,7 @@ end
 local function buildJobItems()
     local items = {}
     for jobName, jobData in pairs(Config.AvailableJobs) do
-        local job = exports.qbcore:getShared('jobs', jobName)
+        local job = exports.kora_core:getShared('jobs', jobName)
         items[#items + 1] = {
             id = jobName,
             label = job and job.label or jobName,
@@ -129,7 +129,7 @@ local function init()
                 label = cityhall.blipData.title
             })
         end
-        exports.qbtarget:addEntity(ped, {
+        exports.kora_target:addEntity(ped, {
             {
                 icon = QB.lang('menus.city_hall_icon'),
                 label = QB.lang('menus.city_hall'),
