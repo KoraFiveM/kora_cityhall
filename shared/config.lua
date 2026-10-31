@@ -36,4 +36,4 @@ Config.Cityhalls = {
     },
 }
 
-Config = QB.config.adopt(Config)
+Config = Kora.config.adopt(Config)

@@ -85,14 +85,14 @@ end
 
 RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
     local src = source
-    assert(src, QB.lang('asserts.src'))
-    assert(key, QB.lang('asserts.key', src))
-    assert(license, QB.lang('asserts.license', src))
+    assert(src, Kora.lang('asserts.src'))
+    assert(key, Kora.lang('asserts.key', src))
+    assert(license, Kora.lang('asserts.license', src))
     local cityhall = Config.Cityhalls[key]
-    assert(cityhall, QB.lang('asserts.cityhall', src))
-    assert(cityhall.licenses, QB.lang('asserts.no_licenses', src))
-    assert(cityhall.licenses[license], QB.lang('asserts.license_config_missing', src, license))
-    assert(QB.distance.player(src, cityhall.coords, 5.0), QB.lang('asserts.cityhall_too_far', src))
+    assert(cityhall, Kora.lang('asserts.cityhall', src))
+    assert(cityhall.licenses, Kora.lang('asserts.no_licenses', src))
+    assert(cityhall.licenses[license], Kora.lang('asserts.license_config_missing', src, license))
+    assert(Kora.distance.player(src, cityhall.coords, 5.0), Kora.lang('asserts.cityhall_too_far', src))
 
     local Player = exports.kora_core:getPlayerData(src)
     if not Player then return end
@@ -102,33 +102,33 @@ RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
 
     local price = tonumber(itemInfo.price) or 0
     if price <= 0 then
-        return QB.notify.send(src, { title = 'qb-cityhall', message = 'This licence is unavailable.', type = 'error' })
+        return Kora.notify.send(src, { title = 'qb-cityhall', message = 'This licence is unavailable.', type = 'error' })
     end
     if not exports['qb-inventory']:CanAddItem(src, license, 1) then
-        return QB.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
+        return Kora.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
     end
     if not exports.kora_core:removeMoney(src, 'cash', price, 'cityhall id') then
-        return QB.notify.send(src, {
+        return Kora.notify.send(src, {
             title = 'qb-cityhall',
-            message = QB.lang('notify.no_cash', price),
+            message = Kora.lang('notify.no_cash', price),
             type = 'error'
         })
     end
     if not exports['qb-inventory']:AddItem(src, license, 1, false, info, 'qb-cityhall:purchaseID') then
         exports.kora_core:addMoney(src, 'cash', price, 'cityhall id refund')
-        return QB.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
+        return Kora.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
     end
 end)
 
 
 RegisterNetEvent('qb-cityhall:server:ApplyJob', function(key, job)
-    assert(source, QB.lang('asserts.src'))
-    assert(type(job) == 'string' and Config.AvailableJobs[job], QB.lang('asserts.job_doesnt_exist', source, job))
-    assert(Config.Cityhalls[key], QB.lang('asserts.cityhall', source))
-    assert(QB.distance.player(source, Config.Cityhalls[key].coords, 5.0), QB.lang('asserts.cityhall_too_far', source))
+    assert(source, Kora.lang('asserts.src'))
+    assert(type(job) == 'string' and Config.AvailableJobs[job], Kora.lang('asserts.job_doesnt_exist', source, job))
+    assert(Config.Cityhalls[key], Kora.lang('asserts.cityhall', source))
+    assert(Kora.distance.player(source, Config.Cityhalls[key].coords, 5.0), Kora.lang('asserts.cityhall_too_far', source))
     local src = source
     if exports.kora_multijob:addJob(src, job, 1) then
-        QB.notify.send(src, { title = 'qb-cityhall', message = 'You have successfully applied for the job.', type = 'success' })
+        Kora.notify.send(src, { title = 'qb-cityhall', message = 'You have successfully applied for the job.', type = 'success' })
     end
 end)
 
