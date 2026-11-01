@@ -23,7 +23,7 @@ local starters = {
     id_card = { item = 'id_card', amount = 1 },
     driver_license = { item = 'driver_license', amount = 1 },
 }
-exports = {
+exports = setmetatable({
     kora_core = {
         getStarterItems = function() return starters end,
         getPlayerData = function(_, src) return clone(players[src]) end,
@@ -58,7 +58,7 @@ exports = {
             return true
         end,
     },
-}
+}, { __call = function() end })
 dofile(resourceDirectory .. 'server/server.lua')
 local claim = assert(events['qb-cityhall:server:getIDs'], 'legacy network event must stay registered')
 

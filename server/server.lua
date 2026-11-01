@@ -83,8 +83,7 @@ local function giveStarterItems()
 end
 
 
-RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
-    local src = source
+local function purchaseID(src, key, license)
     assert(src, Kora.lang('asserts.src'))
     assert(key, Kora.lang('asserts.key', src))
     assert(license, Kora.lang('asserts.license', src))
@@ -118,18 +117,43 @@ RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
         exports.kora_core:addMoney(src, 'cash', price, 'cityhall id refund')
         return Kora.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
     end
+end
+
+RegisterNetEvent('qb-cityhall:server:purchaseID', function(key, license)
+    purchaseID(source, key, license)
+end)
+
+RegisterNetEvent('qb-cityhall:server:requestId', function(item, hall)
+    purchaseID(source, hall, item)
 end)
 
 
+local function findNearbyCityhall(src)
+    for key, cityhall in pairs(Config.Cityhalls) do
+        if Kora.distance.player(src, cityhall.coords, 5.0) then return key end
+    end
+end
+
 RegisterNetEvent('qb-cityhall:server:ApplyJob', function(key, job)
-    assert(source, Kora.lang('asserts.src'))
-    assert(type(job) == 'string' and Config.AvailableJobs[job], Kora.lang('asserts.job_doesnt_exist', source, job))
-    assert(Config.Cityhalls[key], Kora.lang('asserts.cityhall', source))
-    assert(Kora.distance.player(source, Config.Cityhalls[key].coords, 5.0), Kora.lang('asserts.cityhall_too_far', source))
     local src = source
+    assert(src, Kora.lang('asserts.src'))
+    if type(key) == 'string' and not Config.Cityhalls[key] then
+        key, job = findNearbyCityhall(src), key
+        if not key then return end
+    end
+    assert(type(job) == 'string' and Config.AvailableJobs[job], Kora.lang('asserts.job_doesnt_exist', src, job))
+    assert(Config.Cityhalls[key], Kora.lang('asserts.cityhall', src))
+    assert(Kora.distance.player(src, Config.Cityhalls[key].coords, 5.0), Kora.lang('asserts.cityhall_too_far', src))
     if exports.kora_multijob:addJob(src, job, 1) then
         Kora.notify.send(src, { title = 'qb-cityhall', message = 'You have successfully applied for the job.', type = 'success' })
     end
+end)
+
+exports('AddCityJob', function(jobName, toCH)
+    if type(jobName) ~= 'string' or Config.AvailableJobs[jobName] then return false, 'already added' end
+    toCH = type(toCH) == 'table' and toCH or {}
+    Config.AvailableJobs[jobName] = { label = toCH.label, isManaged = toCH.isManaged }
+    return true, 'success'
 end)
 
 RegisterNetEvent('qb-cityhall:server:getIDs', giveStarterItems)

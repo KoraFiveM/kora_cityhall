@@ -142,3 +142,25 @@ local function init()
 end
 
 init()
+
+local function nearestCityhallKey()
+    local ped = PlayerPedId()
+    local pos = GetEntityCoords(ped)
+    local best, bestDist
+    for key, cityhall in pairs(Config.Cityhalls) do
+        local dist = #(pos - vec3(cityhall.coords.x, cityhall.coords.y, cityhall.coords.z))
+        if not bestDist or dist < bestDist then best, bestDist = key, dist end
+    end
+    return best
+end
+
+for _, name in ipairs({ 'openCityhallMenu', 'openIdentityMenu', 'openJobMenu' }) do
+    RegisterNetEvent('qb-cityhall:client:' .. name, function()
+        local key = nearestCityhallKey()
+        if key then openCityhallMenu(key) end
+    end)
+end
+
+RegisterNetEvent('qb-cityhall:client:getIds', function()
+    TriggerServerEvent('qb-cityhall:server:getIDs')
+end)
