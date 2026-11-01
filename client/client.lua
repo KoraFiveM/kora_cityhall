@@ -2,7 +2,7 @@
 local APP_ID = 'qb-cityhall:kiosk'
 
 local function buildIdentityItems(key)
-    local tbl = nil
+    local tbl
     if not Config or not Config.Cityhalls[key] or not Config.Cityhalls[key].licenses then 
         tbl = {
             id_card = {label = 'id_card', price = 100, image = 'default'}
@@ -31,7 +31,7 @@ end
 
 local function buildJobItems()
     local items = {}
-    for jobName, jobData in pairs(Config.AvailableJobs) do
+    for jobName in pairs(Config.AvailableJobs) do
         local job = exports.kora_core:getShared('jobs', jobName)
         items[#items + 1] = {
             id = jobName,
@@ -88,7 +88,6 @@ local function onAppAction(actionId, context)
     end
 
     local jobName = actionId:match('^apply:(.+)$')
-    print(jobName or 'nil')
     if jobName then
         TriggerServerEvent('qb-cityhall:server:ApplyJob', key, jobName)
     end
