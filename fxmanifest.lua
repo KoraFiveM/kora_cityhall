@@ -3,6 +3,7 @@ game 'gta5'
 lua54 'yes'
 -- Keep the legacy resource name resolvable for exports['qbcityhall'] callers.
 provide 'qbcityhall'
+provide 'qb-cityhall'
 use_fxv2_oal 'yes'
 author 'Kakarot'
 description 'Allows players to purchase id cards and licenses or change their job'

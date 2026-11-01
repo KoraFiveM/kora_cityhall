@@ -26,8 +26,15 @@ City Services for QB-Core Framework
 ensure qb-core
 ensure qb-target # Optional
 ensure qb-phone
-ensure qb-cityhall
+ensure kora_cityhall # provides qb-cityhall
 ```
+
+## QBCore compatibility
+- `qb-cityhall:server:requestId(item, hall)` is aliased to `purchaseID`.
+- `qb-cityhall:server:ApplyJob(job, coords)` (stock shape) resolves the hall from the player's server-side position; the client coords are ignored.
+- `exports['qb-cityhall']:AddCityJob(job, { label, isManaged })` adds an applicable job at runtime.
+- Client events `getIds`, `openCityhallMenu`, `openIdentityMenu`, `openJobMenu` open the nearest hall.
+- `drivinglicense` is not provided.
 
 ## Screenshots
 ![City Services](https://i.imgur.com/l6ZRlXP.png)
