@@ -23,6 +23,7 @@ local function buildIdentityItems(key)
                 id = 'purchase:' .. license,
                 label = Kora.lang('menus.purchase') or 'Purchase',
                 variant = 'primary',
+                confirm = Config.ConfirmActions and Kora.lang('menus.confirm_purchase', item and item.label or license, data.price) or nil,
             },
         }
     end
@@ -42,6 +43,7 @@ local function buildJobItems()
                 id = 'apply:' .. jobName,
                 label = Kora.lang('menus.apply') or 'Apply',
                 variant = 'primary',
+                confirm = Config.ConfirmActions and Kora.lang('menus.confirm_apply', job and job.label or jobName) or nil,
             },
         }
     end
@@ -117,8 +119,11 @@ local function init()
     registerCityhallApp(initialKey)
 
     for key, cityhall in pairs(Config.Cityhalls) do
-        local ped = Kora.entities.create(cityhall.ped or 'a_m_m_hasjew_01', cityhall.coords, {freeze = true, invincible = true})
+        local ped = Kora.entities.create(cityhall.ped or 'a_m_m_hasjew_01', cityhall.coords, {freeze = true, invincible = true, blockNonTempEvents = true})
         SetEntityHeading(ped, cityhall.coords.w)
+        SetPedCanRagdoll(ped, false)
+        SetPedFleeAttributes(ped, 0, false)
+        SetPedCombatAttributes(ped, 17, true)
         TaskStartScenarioInPlace(ped, cityhall.scenario or 'WORLD_HUMAN_STAND_MOBILE', 0, true)
         if cityhall.blipData then
             Kora.blips.create(cityhall.coords, {
@@ -162,4 +167,24 @@ end
 
 RegisterNetEvent('qb-cityhall:client:getIds', function()
     TriggerServerEvent('qb-cityhall:server:getIDs')
+end)
+
+-- kora_clothing opens the mandatory first-character fitting room for new
+-- characters; once it closes the server hands over the pending starter items.
+-- Characters that still have them pending (disconnected mid-creation) get them
+-- on their next spawn.
+local awaitingFirstOutfit = false
+
+AddEventHandler('qb-clothing:client:CreateFirstCharacter', function()
+    awaitingFirstOutfit = Config.GiveStarterItems == true
+end)
+
+AddEventHandler('qb-clothing:client:onMenuClose', function()
+    if not awaitingFirstOutfit then return end
+    awaitingFirstOutfit = false
+    TriggerServerEvent('qb-cityhall:server:getIDs')
+end)
+
+AddEventHandler('qbmultichar:client:spawnComplete', function(isNew)
+    if isNew ~= true and Config.GiveStarterItems then TriggerServerEvent('qb-cityhall:server:getIDs') end
 end)

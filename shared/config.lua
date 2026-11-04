@@ -1,5 +1,17 @@
 Config = Config or {}
 Config.Jobs = {}
+
+-- Maximum distance (metres) between a player and the cityhall ped for the server
+-- to accept a licence purchase or job application.
+Config.PurchaseDistance = 5.0
+-- Refuse a licence purchase when the player cannot carry anything more (free
+-- inventory weight is 0 or less), even if the licence itself weighs nothing.
+Config.RequireFreeWeight = true
+-- Ask the player to confirm before a licence is bought or a job is applied for.
+Config.ConfirmActions = true
+-- Grant the pending starter items (ID card, licences...) once the first-character
+-- outfit is confirmed, and on spawn for characters that still have them pending.
+Config.GiveStarterItems = true
 Config.AvailableJobs = {
     trucker = true,
     taxi = true,

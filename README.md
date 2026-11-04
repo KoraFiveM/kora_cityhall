@@ -65,3 +65,11 @@ ensure kora_cityhall # provides qb-cityhall
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>
+## Options (`shared/config.lua`)
+
+| Option | Default | Effect |
+| --- | --- | --- |
+| `Config.PurchaseDistance` | `5.0` | Server-side maximum distance to the cityhall for buying a licence or applying for a job. Too far: the player is told and nothing is charged. |
+| `Config.RequireFreeWeight` | `true` | Refuse a licence purchase when the player's free inventory weight is 0 or less, even though licences weigh nothing. |
+| `Config.ConfirmActions` | `true` | Ask for confirmation before buying a licence or applying for a job. |
+| `Config.GiveStarterItems` | `true` | Grant pending starter items after the first-character outfit is confirmed, and on spawn for characters that still have them pending. |

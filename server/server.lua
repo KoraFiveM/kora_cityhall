@@ -39,6 +39,7 @@ end
 
 local function giveStarterItems()
     local src = source
+    if not Config.GiveStarterItems then return end
     if starterClaims[src] then return end
     local Player = exports.kora_core:getPlayerData(src)
     if not Player then return end
@@ -83,6 +84,19 @@ local function giveStarterItems()
 end
 
 
+local function tooFar(src)
+    Kora.notify.send(src, { title = 'qb-cityhall', message = Kora.lang('notify.too_far'), type = 'error' })
+end
+
+local function hasCarryRoom(src, item)
+    if not exports['qb-inventory']:CanAddItem(src, item, 1) then return false end
+    if Config.RequireFreeWeight then
+        local ok, free = pcall(function() return exports['qb-inventory']:GetFreeWeight(src) end)
+        if ok and type(free) == 'number' and free <= 0 then return false end
+    end
+    return true
+end
+
 local function purchaseID(src, key, license)
     assert(src, Kora.lang('asserts.src'))
     assert(key, Kora.lang('asserts.key', src))
@@ -91,7 +105,7 @@ local function purchaseID(src, key, license)
     assert(cityhall, Kora.lang('asserts.cityhall', src))
     assert(cityhall.licenses, Kora.lang('asserts.no_licenses', src))
     assert(cityhall.licenses[license], Kora.lang('asserts.license_config_missing', src, license))
-    assert(Kora.distance.player(src, cityhall.coords, 5.0), Kora.lang('asserts.cityhall_too_far', src))
+    if not Kora.distance.player(src, cityhall.coords, Config.PurchaseDistance) then return tooFar(src) end
 
     local Player = exports.kora_core:getPlayerData(src)
     if not Player then return end
@@ -103,8 +117,8 @@ local function purchaseID(src, key, license)
     if price <= 0 then
         return Kora.notify.send(src, { title = 'qb-cityhall', message = 'This licence is unavailable.', type = 'error' })
     end
-    if not exports['qb-inventory']:CanAddItem(src, license, 1) then
-        return Kora.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
+    if not hasCarryRoom(src, license) then
+        return Kora.notify.send(src, { title = 'qb-cityhall', message = Kora.lang('notify.inventory_full'), type = 'error' })
     end
     if not exports.kora_core:removeMoney(src, 'cash', price, 'cityhall id') then
         return Kora.notify.send(src, {
@@ -115,7 +129,7 @@ local function purchaseID(src, key, license)
     end
     if not exports['qb-inventory']:AddItem(src, license, 1, false, info, 'qb-cityhall:purchaseID') then
         exports.kora_core:addMoney(src, 'cash', price, 'cityhall id refund')
-        return Kora.notify.send(src, { title = 'qb-cityhall', message = 'Your inventory is full.', type = 'error' })
+        return Kora.notify.send(src, { title = 'qb-cityhall', message = Kora.lang('notify.inventory_full'), type = 'error' })
     end
 end
 
@@ -130,7 +144,7 @@ end)
 
 local function findNearbyCityhall(src)
     for key, cityhall in pairs(Config.Cityhalls) do
-        if Kora.distance.player(src, cityhall.coords, 5.0) then return key end
+        if Kora.distance.player(src, cityhall.coords, Config.PurchaseDistance) then return key end
     end
 end
 
@@ -143,7 +157,7 @@ RegisterNetEvent('qb-cityhall:server:ApplyJob', function(key, job)
     end
     assert(type(job) == 'string' and Config.AvailableJobs[job], Kora.lang('asserts.job_doesnt_exist', src, job))
     assert(Config.Cityhalls[key], Kora.lang('asserts.cityhall', src))
-    assert(Kora.distance.player(src, Config.Cityhalls[key].coords, 5.0), Kora.lang('asserts.cityhall_too_far', src))
+    if not Kora.distance.player(src, Config.Cityhalls[key].coords, Config.PurchaseDistance) then return tooFar(src) end
     if exports.kora_multijob:addJob(src, job, 1) then
         Kora.notify.send(src, { title = 'qb-cityhall', message = 'You have successfully applied for the job.', type = 'success' })
     end

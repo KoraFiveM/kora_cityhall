@@ -10,7 +10,9 @@ return {
         job_doesnt_exist = 'Player: %s | Job: %s | does not exist in Config.Jobs'
     },
     notify = {
-        no_cash = 'You don\'t have enough money on you, you need %s cash'
+        no_cash = 'You don\'t have enough money on you, you need %s cash',
+        too_far = 'You are too far from the City Hall.',
+        inventory_full = 'Your inventory is full.'
     },
     menus = {
         license_cost = 'Price: $ %s',
@@ -23,5 +25,7 @@ return {
         job_center_desc = 'Available Jobs',
         purchase = 'Purchase',
         apply = 'Apply',
+        confirm_purchase = 'Purchase %s for $%s?',
+        confirm_apply = 'Apply for the %s job?',
     }
 }

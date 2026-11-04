@@ -59,6 +59,7 @@ exports = setmetatable({
         end,
     },
 }, { __call = function() end })
+Config = { GiveStarterItems = true }
 dofile(resourceDirectory .. 'server/server.lua')
 local claim = assert(events['qb-cityhall:server:getIDs'], 'legacy network event must stay registered')
 
