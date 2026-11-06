@@ -85,7 +85,7 @@ end
 
 
 local function tooFar(src)
-    Kora.notify.send(src, { title = 'qb-cityhall', message = Kora.lang('notify.too_far'), type = 'error' })
+    Kora.notify.send(src, { title = Kora.lang('menus.city_hall'), message = Kora.lang('notify.too_far'), type = 'error' })
 end
 
 local function hasCarryRoom(src, item)
@@ -115,21 +115,21 @@ local function purchaseID(src, key, license)
 
     local price = tonumber(itemInfo.price) or 0
     if price <= 0 then
-        return Kora.notify.send(src, { title = 'qb-cityhall', message = 'This licence is unavailable.', type = 'error' })
+        return Kora.notify.send(src, { title = Kora.lang('menus.city_hall'), message = 'This licence is unavailable.', type = 'error' })
     end
     if not hasCarryRoom(src, license) then
-        return Kora.notify.send(src, { title = 'qb-cityhall', message = Kora.lang('notify.inventory_full'), type = 'error' })
+        return Kora.notify.send(src, { title = Kora.lang('menus.city_hall'), message = Kora.lang('notify.inventory_full'), type = 'error' })
     end
     if not exports.kora_core:removeMoney(src, 'cash', price, 'cityhall id') then
         return Kora.notify.send(src, {
-            title = 'qb-cityhall',
+            title = Kora.lang('menus.city_hall'),
             message = Kora.lang('notify.no_cash', price),
             type = 'error'
         })
     end
     if not exports['qb-inventory']:AddItem(src, license, 1, false, info, 'qb-cityhall:purchaseID') then
         exports.kora_core:addMoney(src, 'cash', price, 'cityhall id refund')
-        return Kora.notify.send(src, { title = 'qb-cityhall', message = Kora.lang('notify.inventory_full'), type = 'error' })
+        return Kora.notify.send(src, { title = Kora.lang('menus.city_hall'), message = Kora.lang('notify.inventory_full'), type = 'error' })
     end
 end
 
@@ -159,7 +159,7 @@ RegisterNetEvent('qb-cityhall:server:ApplyJob', function(key, job)
     assert(Config.Cityhalls[key], Kora.lang('asserts.cityhall', src))
     if not Kora.distance.player(src, Config.Cityhalls[key].coords, Config.PurchaseDistance) then return tooFar(src) end
     if exports.kora_multijob:addJob(src, job, 1) then
-        Kora.notify.send(src, { title = 'qb-cityhall', message = 'You have successfully applied for the job.', type = 'success' })
+        Kora.notify.send(src, { title = Kora.lang('menus.city_hall'), message = 'You have successfully applied for the job.', type = 'success' })
     end
 end)
 
