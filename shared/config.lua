@@ -1,5 +1,4 @@
 Config = Config or {}
-Config.Jobs = {}
 
 -- Maximum distance (metres) between a player and the cityhall ped for the server
 -- to accept a licence purchase or job application.
