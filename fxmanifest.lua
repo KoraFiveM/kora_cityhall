@@ -1,8 +1,6 @@
 fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
--- Keep the legacy resource name resolvable for exports['qbcityhall'] callers.
-provide 'qbcityhall'
 provide 'qb-cityhall'
 use_fxv2_oal 'yes'
 author 'Kakarot'

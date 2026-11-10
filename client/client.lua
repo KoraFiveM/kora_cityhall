@@ -185,6 +185,6 @@ AddEventHandler('qb-clothing:client:onMenuClose', function()
     TriggerServerEvent('qb-cityhall:server:getIDs')
 end)
 
-AddEventHandler('qbmultichar:client:spawnComplete', function(isNew)
+AddEventHandler('kora_multichar:client:spawnComplete', function(isNew)
     if isNew ~= true and Config.GiveStarterItems then TriggerServerEvent('qb-cityhall:server:getIDs') end
 end)
