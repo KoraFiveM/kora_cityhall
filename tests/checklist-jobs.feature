@@ -100,10 +100,10 @@ Feature: kora_cityhall — Jobs
   @kora_cityhall @checklist @checklist:kora_cityhall:apply-job @cat:jobs
   Scenario: Apply for a government job
     """
-    Checklist test: Job Center tab, Apply on trucker/taxi/tow/reporter/garbage/bus/hotdog; success notification and job added at grade 1.
+    Checklist test: Job Center tab, Apply on trucker/taxi/tow/news/garbage/bus/hotdog; success notification and job added at grade 1.
     """
     When I manually: go to the City Hall clerk ped
-    And I manually: open the City Hall menu, go to the Job Center tab and click Apply on a job (trucker, taxi, tow, reporter, garbage, bus or hotdog)
+    And I manually: open the City Hall menu, go to the Job Center tab and click Apply on a job (trucker, taxi, tow, news (Weazel News), garbage, bus or hotdog)
     Then I should see a notification containing "You have successfully applied for the job."
     And I confirm: my job was added at grade 1
 
