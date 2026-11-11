@@ -1,0 +1,27 @@
+return {
+    asserts = {
+        src = 'Sumber Is Nil',
+        key = 'Pemutar: %s 124; Kunci Cityhall adalah nihil',
+        license = 'Pemutar: %s = 124; Lisensi adalah nihil',
+        cityhall = 'Pemutar: %s = 124; Kunci ditata untuk Konfigurasi. Balai kota tidak ada',
+        no_licenses = 'Pemutar: %s 124; Tidak ada lisensi yang dikonfigurasi untuk balai kota ini',
+        license_config_missing = 'Pemutar: Konfigurasi %s 124; Lisensi hilang bagi lisensi yang diberikan £124; %s',
+        cityhall_too_far = 'Pemutar: %s 124; Pemutar terlalu jauh dari balai kota',
+        job_doesnt_exist = 'Pemutar: %s 124; Job: %s 124; tidak ada dalam Config. Pekerjaan',
+    },
+    notify = {
+        no_cash = 'Anda tidak memiliki cukup uang pada Anda, Anda perlu uang tunai %s',
+    },
+    menus = {
+        license_cost = 'Harga: $ %s',
+        job_center = 'Pusat Tugas',
+        apply_job = 'Terapkan untuk pekerjaan ini',
+        city_hall = 'Balai Kota',
+        city_hall_icon = 'fas fa-city',
+        id_card = 'Kartu ID',
+        id_card_desc = 'Dapatkan Kartu ID Anda',
+        job_center_desc = 'Pekerjaan Tersedia',
+        purchase = 'Membeli',
+        apply = 'Terapkan',
+    },
+}

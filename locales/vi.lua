@@ -1,0 +1,27 @@
+return {
+    asserts = {
+        src = 'Nguồn là Nil',
+        key = 'Người chơi: phím %s vội là nil',
+        license = 'Người chơi: %s giấy Phép là nil',
+        cityhall = 'Người chơi: %s đặt để cấu hình. Name',
+        no_licenses = 'Người chơi: %s không có giấy phép được cấu hình cho thành phố này',
+        license_config_missing = 'Player: %s | License configuration is missing for the given license | %s',
+        cityhall_too_far = 'Player: %s | Player is too far from the cityhall',
+        job_doesnt_exist = 'Người chơi: Công việc %s : %s không tồn tại cấu hình. Công việc',
+    },
+    notify = {
+        no_cash = "You don't have enough money on you, you need %s cash",
+    },
+    menus = {
+        license_cost = 'Price: $ %s',
+        job_center = 'Trung tâm công việc',
+        apply_job = 'Áp dụng cho công việc này',
+        city_hall = 'Tòa thị chính',
+        city_hall_icon = 'fas fa-city',
+        id_card = 'Thẻ ID',
+        id_card_desc = 'Nhận chứng minh thư',
+        job_center_desc = 'Công việc sẵn sàng',
+        purchase = 'Purchase',
+        apply = 'Áp dụng',
+    },
+}

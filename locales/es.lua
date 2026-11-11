@@ -1,0 +1,27 @@
+return {
+    asserts = {
+        src = 'Fuente Is Nil',
+        key = 'Jugador: %s Silencio Cityhall clave es nil',
+        license = 'Jugador: %s Silencioso Licencia es nil',
+        cityhall = 'Jugador: %s tención Juego clave para Config. Los ayuntamientos no existen',
+        no_licenses = 'Jugador: %s Silencio No hay licencias configuradas para esta ciudadhall',
+        license_config_missing = 'Player: %s | License configuration is missing for the given license | %s',
+        cityhall_too_far = 'Jugador: %s Silencioso Jugador está muy lejos del ayuntamiento',
+        job_doesnt_exist = 'Jugador: %s tención Job: %s Silencio no existe en Config. Empleo',
+    },
+    notify = {
+        no_cash = 'No tienes suficiente dinero para ti, necesitas dinero %s',
+    },
+    menus = {
+        license_cost = 'Precio: $ %s',
+        job_center = 'Job Center',
+        apply_job = 'Solicitar este trabajo',
+        city_hall = 'Ayuntamiento',
+        city_hall_icon = 'fas fa-city',
+        id_card = 'Tarjeta de identificación',
+        id_card_desc = 'Consigue tu tarjeta de identificación',
+        job_center_desc = 'Trabajos disponibles',
+        purchase = 'Compra',
+        apply = 'Aplicar',
+    },
+}
