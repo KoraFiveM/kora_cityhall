@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # kora_cityhall
 
-`kora_cityhall` (version `0.1.0`) is the Kora city services resource. It places one or more City Hall clerk peds on the map. Players can target a clerk to open a City Hall panel, where they can buy identity documents and licences with cash or join a job from a configured list. It also gives new characters their pending starter items after they confirm their first outfit. The resource `provide`s `qb-cityhall`, so it can replace stock qb-cityhall.
+`kora_cityhall` (version `0.2.0`) is the Kora city services resource. It places one or more City Hall clerk peds on the map. Players can target a clerk to open a City Hall panel, where they can buy identity documents and licences with cash or join a job from a configured list. It also gives new characters their pending starter items after they confirm their first outfit. The resource `provide`s `qb-cityhall`, so it can replace stock qb-cityhall.
 
 ## Features
 
@@ -16,7 +16,7 @@ sidebar_position: 1
 - **Confirmation dialogs**: when `Config.ConfirmActions` is enabled, purchases and job applications ask the player to confirm first.
 - **Server-side validation**: the server checks how far the player is from the City Hall, whether the licence and job are configured, whether the player can carry the item, and whether they have enough cash. If the item cannot be added after payment, the cash is refunded.
 - **Starter items**: pending starter items stored in character metadata are granted after the first-character outfit menu closes. Characters that disconnected before receiving them get them on a later spawn. See [Items and starter items](./items.md).
-- **Runtime job registration**: the server export `AddCityJob` adds another job that players can apply for. See [Exports](./exports.md).
+- **Runtime job registration**: the server export `AddCityJob` adds another job that players can apply for. See [Exports](./api/exports.md).
 - **qb-cityhall compatibility**: stock event names and argument shapes are accepted. See [Compatibility](./compatibility.md).
 - **Locales**: UI and notification strings come from `locales/*.lua` and are read with `Kora.lang`.
 
@@ -33,28 +33,14 @@ sidebar_position: 1
 
 Only `kora_lib` and `kora_core` are declared as `dependency` in `fxmanifest.lua`. The other resources are called directly and must be running.
 
-## Installation
+## Documentation map
 
-1. Place the resource in your resources folder, for example `[kora]/kora_cityhall`.
-2. Ensure it after its dependencies:
-
-   ```cfg
-   ensure kora_lib
-   ensure kora_core
-   ensure kora_target
-   ensure kora_inventory
-   ensure kora_multijob
-   ensure kora_cityhall
-   ```
-
-3. No SQL import is needed. The resource creates no tables. See [Database](./database.md).
-4. Make sure every licence key in `Config.Cityhalls[n].licenses` exists as a shared item in `kora_core` (defaults: `id_card`, `driver_license`, `weaponlicense`). Also make sure every key in `Config.AvailableJobs` exists as a shared job with a grade `1`.
-
-## Pages
-
-- [Configuration](./configuration.md): every option in `shared/config.lua`
+- [Installation](./installation.md): install steps, dependencies and requirements
+- [How to use](./how-to-use.md): what players see, purchase and job flows, starter items, architecture
+- [API reference](./api/index.md): modules overview
+  - [Exports](./api/exports.md): `AddCityJob`
+  - [Configuration](./api/configuration.md): every option in `shared/config.lua`, defaults, locales
 - [Items and starter items](./items.md): licence items, item metadata and starter-item grants
-- [Exports](./exports.md): `AddCityJob`
 - [Events](./events.md): client and server net events
 - [Database](./database.md): character metadata used by the resource
 - [Compatibility](./compatibility.md): qb-cityhall aliases and differences

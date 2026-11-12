@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-sidebar_position: 8
+sidebar_position: 10
 ---
 
 # Troubleshooting
@@ -27,7 +27,7 @@ The player is farther than `Config.PurchaseDistance` from the City Hall `coords`
 `kora_multijob` refused the job. Common reasons are that the job does not exist, it has no grade `1`, or the player's job roster is full. `kora_cityhall` shows no error notification in this case. Check the job definition in `kora_core` and the `kora_multijob` settings.
 
 **A job added with `AddCityJob` does not appear in the Job Center.**
-This is expected. The export only changes the server's list. See [Exports](./exports.md).
+This is expected. The export only changes the server's list. See [Exports](./api/exports.md).
 
 **Starter items are not given.**
 Check that `Config.GiveStarterItems` is `true`, and that the character has a `starterItems` metadata table with pending (`true`) entries. Items are granted after the `kora_clothing` first-character menu closes or on a later `kora_multichar` spawn. Look in the server console for `[qb-cityhall] Starter item claim failed` messages.

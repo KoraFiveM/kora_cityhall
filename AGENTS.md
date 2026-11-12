@@ -4,7 +4,7 @@
 
 ## Documentation
 
-User-facing documentation lives in `docs/` (Markdown, published via the Kora Docusaurus site, kora_docs_next). Read `docs/index.md` first for an overview of features, configuration, commands, exports, events and database usage.
+User-facing documentation lives in `docs/` (Markdown, published via the Kora Docusaurus site, kora_docs_next). Read `docs/index.md` first; it has the overview and a documentation map. Layout: `index.md` (hub), `installation.md` (install steps, dependencies), `how-to-use.md` (player flow, purchase/job/starter-item flows, architecture), `api/` (`index.md`, `exports.md` for `AddCityJob`, `configuration.md` for every `Config` option and locale keys), and topic pages `items.md`, `events.md`, `database.md`, `compatibility.md`, `troubleshooting.md`. The resource has no commands, so there is no `commands.md`. Update the page that owns the topic instead of adding duplicates.
 
 When you add, change, or remove a feature, config option, command, export, event, item, permission, or database table/column, update the matching page in `docs/` in the same change. Keep docs accurate to the code; do not document behaviour that does not exist.
 

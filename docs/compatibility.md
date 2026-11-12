@@ -1,6 +1,6 @@
 ---
 title: Compatibility
-sidebar_position: 7
+sidebar_position: 9
 ---
 
 # Compatibility
@@ -13,7 +13,7 @@ sidebar_position: 7
 | --- | --- |
 | `qb-cityhall:server:requestId(item, hall)` | Calls the same purchase handler as `qb-cityhall:server:purchaseID(hall, item)`. |
 | `qb-cityhall:server:ApplyJob(job, coords)` | Finds the City Hall from the player's server-side position, using the first one within `Config.PurchaseDistance`. The client `coords` are ignored. If the player is not near any City Hall, nothing happens. |
-| `exports['qb-cityhall']:AddCityJob(job, { label, isManaged })` | Adds a job the server accepts applications for. See [Exports](./exports.md) for the client-side limitation. |
+| `exports['qb-cityhall']:AddCityJob(job, { label, isManaged })` | Adds a job the server accepts applications for. See [Exports](./api/exports.md) for the client-side limitation. |
 | `qb-cityhall:client:openCityhallMenu`, `openIdentityMenu`, `openJobMenu` | All open the panel for the nearest City Hall. |
 | `qb-cityhall:client:getIds` | Claims pending starter items. |
 

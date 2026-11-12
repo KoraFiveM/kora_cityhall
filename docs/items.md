@@ -1,6 +1,6 @@
 ---
 title: Items and starter items
-sidebar_position: 3
+sidebar_position: 6
 ---
 
 # Items and starter items
@@ -9,7 +9,7 @@ sidebar_position: 3
 
 ## Licence items
 
-Each City Hall sells the items listed in its `licenses` table. See [Configuration](./configuration.md). The Identity tab shows each item's shared `label` and `image`, loaded from `nui://kora_inventory/images/`. If the item is not a shared item, the tab shows the raw key and the `default` image.
+Each City Hall sells the items listed in its `licenses` table. See [Configuration](./api/configuration.md). The Identity tab shows each item's shared `label` and `image`, loaded from `nui://kora_inventory/images/`. If the item is not a shared item, the tab shows the raw key and the `default` image.
 
 ### Item metadata
 
