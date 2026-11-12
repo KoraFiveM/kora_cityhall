@@ -36,6 +36,8 @@ ensure kora_cityhall # provides qb-cityhall
 - Client events `getIds`, `openCityhallMenu`, `openIdentityMenu`, `openJobMenu` open the nearest hall.
 - `drivinglicense` is not provided.
 
+Full documentation: see [docs/](docs/index.md).
+
 ## Screenshots
 ![City Services](https://i.imgur.com/l6ZRlXP.png)
 ![Request Birth Certificate](https://i.imgur.com/zJRiuDI.png)
