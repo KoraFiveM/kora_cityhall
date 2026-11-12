@@ -1,0 +1,77 @@
+{
+  "resource": "kora_cityhall",
+  "standardsRevision": "2026-11-12.1",
+  "realms": {
+    "client": [
+      "client/client.lua"
+    ],
+    "server": [
+      "server/server.lua"
+    ],
+    "shared": [
+      "locales/ar.lua",
+      "locales/bg.lua",
+      "locales/cs.lua",
+      "locales/da.lua",
+      "locales/de.lua",
+      "locales/el.lua",
+      "locales/en.lua",
+      "locales/es.lua",
+      "locales/et.lua",
+      "locales/fi.lua",
+      "locales/fr.lua",
+      "locales/he.lua",
+      "locales/hr.lua",
+      "locales/hu.lua",
+      "locales/id.lua",
+      "locales/it.lua",
+      "locales/ja.lua",
+      "locales/ko.lua",
+      "locales/lt.lua",
+      "locales/nl.lua",
+      "locales/no.lua",
+      "locales/pl.lua",
+      "locales/pt-br.lua",
+      "locales/pt.lua",
+      "locales/ro.lua",
+      "locales/ru.lua",
+      "locales/sk.lua",
+      "locales/sr.lua",
+      "locales/sv.lua",
+      "locales/tr.lua",
+      "locales/uk.lua",
+      "locales/vi.lua",
+      "locales/vn.lua",
+      "locales/zh.lua",
+      "shared/config.lua"
+    ],
+    "manifest": [
+      "fxmanifest.lua"
+    ],
+    "test": [
+      "tests/compat_test.lua",
+      "tests/starter_items_test.lua"
+    ]
+  },
+  "exclude": [
+    ".git/*",
+    ".github/*",
+    ".standards/*",
+    "node_modules/*",
+    "**/node_modules/*",
+    "vendor/*",
+    "**/vendor/*",
+    "web/*",
+    "ui/*",
+    "html/*",
+    "dist/*",
+    "artifacts/*",
+    "runtime/*",
+    "txData/*",
+    "storage/*",
+    "stream/*",
+    "docs/*",
+    "__pycache__/*",
+    "modules/lookup/data/*"
+  ]
+}
