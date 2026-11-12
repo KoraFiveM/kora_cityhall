@@ -1,0 +1,27 @@
+return {
+    asserts = {
+        src = 'المصدر هو نيل',
+        key = 'Player: %s | Cityhall key is nil',
+        license = 'Player: %s | License is nil',
+        cityhall = 'Player: %s | Key set for Config.Cityhalls doesnt exist',
+        no_licenses = 'Player: %s | No licenses configured for this cityhall',
+        license_config_missing = 'اللاعب: %s the License formation is missing for the given license  the %s',
+        cityhall_too_far = 'Player: %s | Player is too far from the cityhall',
+        job_doesnt_exist = 'اللاعب: %s . Job: %s . does not exist in Config. الوظائف',
+    },
+    notify = {
+        no_cash = "You don't have enough money on you, you need %s cash",
+    },
+    menus = {
+        license_cost = 'السعر: %s',
+        job_center = 'مركز العمل',
+        apply_job = 'تطبيق هذه الوظيفة',
+        city_hall = 'قاعة المدينة',
+        city_hall_icon = 'fas fa-city',
+        id_card = 'بطاقة الهوية',
+        id_card_desc = 'أحضر بطاقة هويتك',
+        job_center_desc = 'الوظائف المتاحة',
+        purchase = 'الشراء',
+        apply = 'التطبيق',
+    },
+}

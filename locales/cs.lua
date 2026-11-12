@@ -1,0 +1,27 @@
+return {
+    asserts = {
+        src = 'Zdroj je Nil',
+        key = 'Přehrávač: %s IR 124; Cityhall klíč je nula',
+        license = 'Přehrávač: %s IR 124; Licence je nula',
+        cityhall = 'Přehrávač: %s IR 124; Sestava klíčů pro konfiguraci. Cityhally neexistují',
+        no_licenses = 'Přehrávač: %s IR 124; Žádné licence konfigurované pro tuto radnici',
+        license_config_missing = 'Přehrávač: %s IR 124; Konfigurace licence chybí pro danou licenci IR 124; %s',
+        cityhall_too_far = 'Přehrávač: %s IR 124; Hráč je příliš daleko od městské haly',
+        job_doesnt_exist = 'Přehrávač: %s IR 124; Job: %s IR 124; v konfiguraci neexistuje. Pracovní místa',
+    },
+    notify = {
+        no_cash = 'Nemáte dost peněz u sebe, potřebujete %s hotovost',
+    },
+    menus = {
+        license_cost = 'Cena: $ %s',
+        job_center = 'Pracovní centrum',
+        apply_job = 'Žádost o tuto práci',
+        city_hall = 'Radnice',
+        city_hall_icon = 'fas fa-city',
+        id_card = 'Průkaz totožnosti',
+        id_card_desc = 'Získejte průkaz totožnosti',
+        job_center_desc = 'Dostupné nabídky',
+        purchase = 'Nákup',
+        apply = 'Aplikovat',
+    },
+}

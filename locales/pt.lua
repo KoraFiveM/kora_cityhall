@@ -1,0 +1,27 @@
+return {
+    asserts = {
+        src = 'A Fonte é Nil',
+        key = 'Jogador: %s A tecla Cityhall é nula',
+        license = 'Jogador: %s Licença é zero',
+        cityhall = 'Jogador: %s O conjunto da chave para a configuração. Cidades não existem',
+        no_licenses = 'Jogador: %s Não há licenças configuradas para esta prefeitura',
+        license_config_missing = 'Player: %s | License configuration is missing for the given license | %s',
+        cityhall_too_far = 'Jogador: %s O jogador está muito longe da prefeitura',
+        job_doesnt_exist = 'Jogador: %s Trabalho: %s Não existe na Configuração. Trabalhos',
+    },
+    notify = {
+        no_cash = 'Você não tem dinheiro suficiente com você, você precisa de dinheiro %s',
+    },
+    menus = {
+        license_cost = 'Preço: $ %s',
+        job_center = 'Centro de tarefas',
+        apply_job = 'Candidatar-se a este trabalho',
+        city_hall = 'Prefeitura',
+        city_hall_icon = 'fas fa-city',
+        id_card = 'Cartão de ID',
+        id_card_desc = 'Obtenha seu cartão de identificação',
+        job_center_desc = 'Trabalhos Disponíveis',
+        purchase = 'Compra',
+        apply = 'Aplicar',
+    },
+}

@@ -1,0 +1,27 @@
+return {
+    asserts = {
+        src = 'Источник: Nil',
+        key = 'Игрок: %s | Cityhall key',
+        license = 'Игрок: %s | Лицензия',
+        cityhall = 'Игрок: %s | Набор клавиш для Config. Cityhalls не существует',
+        no_licenses = 'Игрок: %s | Никаких лицензий, настроенных для этого Ситихолла',
+        license_config_missing = 'Игрок: %s | Конфигурация лицензии отсутствует для данной лицензии | %s',
+        cityhall_too_far = 'Игрок: %s | Игрок находится слишком далеко от Ситихолла',
+        job_doesnt_exist = 'Игрок: %s | Работа: %s | не существует в Config. Работа',
+    },
+    notify = {
+        no_cash = 'Вам не хватает денег, вам нужны наличные %s',
+    },
+    menus = {
+        license_cost = 'Цена: $ %s',
+        job_center = 'Центр занятости',
+        apply_job = 'Подать заявку на эту работу',
+        city_hall = 'Мэрия',
+        city_hall_icon = 'fas fa-city',
+        id_card = 'ID карта',
+        id_card_desc = 'Получите ID-карту',
+        job_center_desc = 'Доступные рабочие места',
+        purchase = 'Покупка',
+        apply = 'Применять',
+    },
+}
