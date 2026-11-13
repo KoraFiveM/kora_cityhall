@@ -3,7 +3,7 @@ game 'gta5'
 lua54 'yes'
 provide 'qb-cityhall'
 use_fxv2_oal 'yes'
-author 'Kakarot'
+author 'Kora'
 description 'Allows players to purchase id cards and licenses or change their job'
 version '0.2.1'
 

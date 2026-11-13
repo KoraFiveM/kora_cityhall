@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = "You don't have enough money on you, you need %s cash",
+        too_far = "Bạn đang ở quá xa tòa thị chính.",
+        inventory_full = "Túi đồ của bạn đã đầy.",
+        license_unavailable = "Giấy phép này hiện không khả dụng.",
+        job_applied = "Bạn đã ứng tuyển công việc thành công.",
     },
     menus = {
         license_cost = 'Price: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Công việc sẵn sàng',
         purchase = 'Purchase',
         apply = 'Áp dụng',
+        confirm_purchase = "Mua %s với giá $%s?",
+        confirm_apply = "Ứng tuyển công việc %s?",
     },
 }

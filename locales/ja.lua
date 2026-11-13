@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = '%s の現金を必要としません',
+        too_far = "市役所から離れすぎています。",
+        inventory_full = "インベントリがいっぱいです。",
+        license_unavailable = "このライセンスは利用できません。",
+        job_applied = "求人への応募が完了しました。",
     },
     menus = {
         license_cost = '価格: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = '募集職種',
         purchase = '購入方法',
         apply = 'お問い合わせ',
+        confirm_purchase = "%sを$%sで購入しますか？",
+        confirm_apply = "仕事「%s」に応募しますか？",
     },
 }

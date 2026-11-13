@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'Size yeterince paranız yok, %s paraya ihtiyacınız var',
+        too_far = "Belediye binasından çok uzaktasın.",
+        inventory_full = "Envanterin dolu.",
+        license_unavailable = "Bu lisans mevcut değil.",
+        job_applied = "İşe başarıyla başvurdun.",
     },
     menus = {
         license_cost = 'Fiyat: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Mevcut Jobs',
         purchase = 'Satın Alma Satın Al',
         apply = 'Başvuru',
+        confirm_purchase = "%s için $%s ödeyerek satın al?",
+        confirm_apply = "%s işine başvur?",
     },
 }

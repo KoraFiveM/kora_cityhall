@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'Nu ai destui bani la tine, ai nevoie de bani %s',
+        too_far = "Ești prea departe de primărie.",
+        inventory_full = "Inventarul tău este plin.",
+        license_unavailable = "Această licență nu este disponibilă.",
+        job_applied = "Ai aplicat cu succes pentru acest loc de muncă.",
     },
     menus = {
         license_cost = 'Preţ: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Locuri de muncă disponibile',
         purchase = 'Achiziții',
         apply = 'Aplică',
+        confirm_purchase = "Cumperi %s pentru $%s?",
+        confirm_apply = "Aplici pentru postul %s?",
     },
 }

@@ -12,7 +12,9 @@ return {
     notify = {
         no_cash = 'You don\'t have enough money on you, you need %s cash',
         too_far = 'You are too far from the City Hall.',
-        inventory_full = 'Your inventory is full.'
+        inventory_full = 'Your inventory is full.',
+        license_unavailable = 'This licence is unavailable.',
+        job_applied = 'You have successfully applied for the job.'
     },
     menus = {
         license_cost = 'Price: $ %s',

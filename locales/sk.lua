@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'Nemáte dosť peňazí na vás, potrebujete %s hotovosti',
+        too_far = "Ste príliš ďaleko od radnice.",
+        inventory_full = "Tvoj inventár je plný.",
+        license_unavailable = "Táto licencia nie je dostupná.",
+        job_applied = "Úspešne ste sa uchádzali o túto prácu.",
     },
     menus = {
         license_cost = 'Cena: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Dostupné úlohy',
         purchase = 'Nákup',
         apply = 'Použiť',
+        confirm_purchase = "Kúpiť %s za $%s?",
+        confirm_apply = "Uchádzať sa o prácu %s?",
     },
 }

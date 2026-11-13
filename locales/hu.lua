@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'Nincs elég pénzed, %s készpénzre van szükséged',
+        too_far = "Túl messze vagy a városházától.",
+        inventory_full = "Megtelt a tárhelyed.",
+        license_unavailable = "Ez az engedély nem érhető el.",
+        job_applied = "Sikeresen jelentkeztél az állásra.",
     },
     menus = {
         license_cost = 'Ár: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Rendelkezésre álló munkahelyek',
         purchase = 'Vásárlás',
         apply = 'Alkalmazás',
+        confirm_purchase = "Megvásárolod ezt: %s, $%s áron?",
+        confirm_apply = "Jelentkezel a(z) %s állásra?",
     },
 }

@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'Du har ikke nok penge på dig, du har brug for %s kontanter',
+        too_far = "Du er for langt fra rådhuset.",
+        inventory_full = "Dit lager er fuldt.",
+        license_unavailable = "Denne licens er ikke tilgængelig.",
+        job_applied = "Du har ansøgt om jobbet.",
     },
     menus = {
         license_cost = 'Pris: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Tilgængelige job',
         purchase = 'Køb',
         apply = 'Anvend',
+        confirm_purchase = "Køb %s for $%s?",
+        confirm_apply = "Ansøg om jobbet %s?",
     },
 }

@@ -115,7 +115,7 @@ local function purchaseID(src, key, license)
 
     local price = tonumber(itemInfo.price) or 0
     if price <= 0 then
-        return Kora.notify.send(src, { title = Kora.lang('menus.city_hall'), message = 'This licence is unavailable.', type = 'error' })
+        return Kora.notify.send(src, { title = Kora.lang('menus.city_hall'), message = Kora.lang('notify.license_unavailable'), type = 'error' })
     end
     if not hasCarryRoom(src, license) then
         return Kora.notify.send(src, { title = Kora.lang('menus.city_hall'), message = Kora.lang('notify.inventory_full'), type = 'error' })
@@ -159,7 +159,7 @@ RegisterNetEvent('qb-cityhall:server:ApplyJob', function(key, job)
     assert(Config.Cityhalls[key], Kora.lang('asserts.cityhall', src))
     if not Kora.distance.player(src, Config.Cityhalls[key].coords, Config.PurchaseDistance) then return tooFar(src) end
     if exports.kora_multijob:addJob(src, job, 1) then
-        Kora.notify.send(src, { title = Kora.lang('menus.city_hall'), message = 'You have successfully applied for the job.', type = 'success' })
+        Kora.notify.send(src, { title = Kora.lang('menus.city_hall'), message = Kora.lang('notify.job_applied'), type = 'success' })
     end
 end)
 

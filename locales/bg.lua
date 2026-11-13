@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'Нямаш достатъчно пари, трябват ти %s пари',
+        too_far = "Твърде далеч си от кметството.",
+        inventory_full = "Инвентарът ти е пълен.",
+        license_unavailable = "Този лиценз не е наличен.",
+        job_applied = "Успешно кандидатства за работата.",
     },
     menus = {
         license_cost = 'Цена: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Налични работни места',
         purchase = 'Покупка',
         apply = 'Прилагане',
+        confirm_purchase = "Да купя ли %s за $%s?",
+        confirm_apply = "Да кандидатствам ли за работа %s?",
     },
 }

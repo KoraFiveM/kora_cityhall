@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'Вам не хватает денег, вам нужны наличные %s',
+        too_far = "Вы слишком далеко от мэрии.",
+        inventory_full = "Инвентарь заполнен.",
+        license_unavailable = "Эта лицензия недоступна.",
+        job_applied = "Вы успешно подали заявку на работу.",
     },
     menus = {
         license_cost = 'Цена: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Доступные рабочие места',
         purchase = 'Покупка',
         apply = 'Применять',
+        confirm_purchase = "Купить %s за $%s?",
+        confirm_apply = "Подать заявку на должность %s?",
     },
 }

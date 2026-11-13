@@ -21,7 +21,7 @@ local function buildIdentityItems(key)
             image = 'nui://kora_inventory/images/' .. (item and item.image or 'default'),
             action = {
                 id = 'purchase:' .. license,
-                label = Kora.lang('menus.purchase') or 'Purchase',
+                label = Kora.lang('menus.purchase'),
                 variant = 'primary',
                 confirm = Config.ConfirmActions and Kora.lang('menus.confirm_purchase', item and item.label or license, data.price) or nil,
             },
@@ -41,7 +41,7 @@ local function buildJobItems()
             icon = 'Briefcase',
             action = {
                 id = 'apply:' .. jobName,
-                label = Kora.lang('menus.apply') or 'Apply',
+                label = Kora.lang('menus.apply'),
                 variant = 'primary',
                 confirm = Config.ConfirmActions and Kora.lang('menus.confirm_apply', job and job.label or jobName) or nil,
             },

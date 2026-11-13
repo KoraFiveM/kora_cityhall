@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'Je hebt niet genoeg geld op je, je hebt %s cash nodig',
+        too_far = "Je bent te ver van het stadhuis.",
+        inventory_full = "Je inventaris is vol.",
+        license_unavailable = "Deze licentie is niet beschikbaar.",
+        job_applied = "Je hebt succesvol gesolliciteerd naar de baan.",
     },
     menus = {
         license_cost = 'Prijs: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Beschikbare banen',
         purchase = 'Aankoop',
         apply = 'Toepassen',
+        confirm_purchase = "%s kopen voor $%s?",
+        confirm_apply = "Solliciteren naar de baan %s?",
     },
 }

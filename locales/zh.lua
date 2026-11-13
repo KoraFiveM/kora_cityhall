@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = "You don't have enough money on you, you need %s cash",
+        too_far = "你离市政厅太远了。",
+        inventory_full = "你的背包已满。",
+        license_unavailable = "此许可证暂不可用。",
+        job_applied = "你已成功申请该工作。",
     },
     menus = {
         license_cost = 'Price: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = '可用任务',
         purchase = '采购',
         apply = '应用',
+        confirm_purchase = "购买 %s，价格 $%s，确认吗？",
+        confirm_apply = "要申请 %s 工作吗？",
     },
 }

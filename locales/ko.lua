@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = '당신은 충분히 돈이 없습니다, 당신은 %s 현금을 필요로',
+        too_far = "시청에서 너무 멀리 떨어져 있습니다.",
+        inventory_full = "인벤토리가 가득 찼습니다.",
+        license_unavailable = "이 면허는 이용할 수 없습니다.",
+        job_applied = "해당 직업에 성공적으로 지원했습니다.",
     },
     menus = {
         license_cost = '가격: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = '자주 묻는 질문',
         purchase = '구매하기',
         apply = '지원하다',
+        confirm_purchase = "%s을(를) $%s에 구매하시겠습니까?",
+        confirm_apply = "%s 직업에 지원하시겠습니까?",
     },
 }

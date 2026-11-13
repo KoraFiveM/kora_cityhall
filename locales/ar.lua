@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = "You don't have enough money on you, you need %s cash",
+        too_far = "أنت بعيد جدًا عن قاعة المدينة.",
+        inventory_full = "حقيبتك ممتلئة.",
+        license_unavailable = "هذا الترخيص غير متاح.",
+        job_applied = "لقد تقدمت بنجاح للوظيفة.",
     },
     menus = {
         license_cost = 'السعر: %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'الوظائف المتاحة',
         purchase = 'الشراء',
         apply = 'التطبيق',
+        confirm_purchase = "شراء %s مقابل $%s؟",
+        confirm_apply = "التقدم لوظيفة %s؟",
     },
 }

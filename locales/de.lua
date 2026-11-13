@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'Du hast nicht genug Geld für dich, du brauchst %s Bargeld',
+        too_far = "Du bist zu weit vom Rathaus entfernt.",
+        inventory_full = "Dein Inventar ist voll.",
+        license_unavailable = "Diese Lizenz ist nicht verfügbar.",
+        job_applied = "Du hast dich erfolgreich für den Job beworben.",
     },
     menus = {
         license_cost = 'Preis: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Verfügbare Jobs',
         purchase = 'Kauf',
         apply = 'Beantragen',
+        confirm_purchase = "%s für $%s kaufen?",
+        confirm_apply = "Für den Job %s bewerben?",
     },
 }

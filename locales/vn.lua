@@ -10,7 +10,11 @@ return {
         job_doesnt_exist = 'Người chơi: %s | Công việc: %s | không tồn tại trong Config.Jobs'
     },
     notify = {
-        no_cash = 'Bạn không có đủ tiền trong người, bạn cần %s tiền mặt'
+        no_cash = 'Bạn không có đủ tiền trong người, bạn cần %s tiền mặt',
+        too_far = "Bạn đang ở quá xa tòa thị chính.",
+        inventory_full = "Túi đồ của bạn đã đầy.",
+        license_unavailable = "Giấy phép này hiện không khả dụng.",
+        job_applied = "Bạn đã ứng tuyển công việc thành công.",
     },
     menus = {
         license_cost = 'Giá: %s $',
@@ -21,5 +25,9 @@ return {
         id_card = 'Thẻ căn cước',
         id_card_desc = 'Nhận thẻ căn cước của bạn',
         job_center_desc = 'Công việc có sẵn',
+        purchase = 'Mua',
+        apply = 'Ứng tuyển',
+        confirm_purchase = 'Mua %s với giá $%s?',
+        confirm_apply = 'Ứng tuyển công việc %s?'
     }
 }

@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'Sinulla ei ole tarpeeksi rahaa, tarvitset %s käteistä',
+        too_far = "Olet liian kaukana kaupungintalosta.",
+        inventory_full = "Varastosi on täynnä.",
+        license_unavailable = "Tämä lisenssi ei ole saatavilla.",
+        job_applied = "Hait työpaikkaa onnistuneesti.",
     },
     menus = {
         license_cost = 'Hinta: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Saatavilla olevat työpaikat',
         purchase = 'Osto',
         apply = 'Käytä',
+        confirm_purchase = "Osta %s hintaan $%s?",
+        confirm_apply = "Hae työpaikkaa %s?",
     },
 }

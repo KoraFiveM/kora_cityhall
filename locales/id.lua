@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'Anda tidak memiliki cukup uang pada Anda, Anda perlu uang tunai %s',
+        too_far = "Kamu terlalu jauh dari balai kota.",
+        inventory_full = "Inventarismu penuh.",
+        license_unavailable = "Lisensi ini tidak tersedia.",
+        job_applied = "Kamu berhasil melamar pekerjaan.",
     },
     menus = {
         license_cost = 'Harga: $ %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'Pekerjaan Tersedia',
         purchase = 'Membeli',
         apply = 'Terapkan',
+        confirm_purchase = "Beli %s seharga $%s?",
+        confirm_apply = "Lamar pekerjaan %s?",
     },
 }

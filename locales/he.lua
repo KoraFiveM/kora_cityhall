@@ -11,6 +11,10 @@ return {
     },
     notify = {
         no_cash = 'אין לך מספיק כסף, אתה צריך %s מזומנים',
+        too_far = "אתה רחוק מדי מבית העירייה.",
+        inventory_full = "המלאי שלך מלא.",
+        license_unavailable = "הרישיון הזה אינו זמין.",
+        job_applied = "הגשת מועמדות למשרה בהצלחה.",
     },
     menus = {
         license_cost = 'מחיר: %s',
@@ -23,5 +27,7 @@ return {
         job_center_desc = 'משרות זמינות',
         purchase = 'רכישה',
         apply = 'Apply',
+        confirm_purchase = "לרכוש את %s תמורת $%s?",
+        confirm_apply = "להגיש מועמדות למשרה %s?",
     },
 }

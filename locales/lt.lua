@@ -10,7 +10,11 @@ return {
         job_doesnt_exist = 'Giocatore: %s | Lavoro: %s | non esiste in Config.Jobs'
     },
     notify = {
-        no_cash = 'Non hai abbastanza soldi con te, ti servono %s in contanti'
+        no_cash = 'Non hai abbastanza soldi con te, ti servono %s in contanti',
+        too_far = "Esi per toli nuo miesto rotušės.",
+        inventory_full = "Tavo inventorius pilnas.",
+        license_unavailable = "Ši licencija neprieinama.",
+        job_applied = "Sėkmingai pateikei paraišką dėl darbo.",
     },
     menus = {
         license_cost = 'Prezzo: %s $',
@@ -21,5 +25,9 @@ return {
         id_card = 'Carta d\'Identità',
         id_card_desc = 'Ottieni la tua Carta d\'Identità',
         job_center_desc = 'Lavori disponibili',
+        purchase = 'Pirkti',
+        apply = 'Kandidatuoti',
+        confirm_purchase = 'Pirkti %s už $%s?',
+        confirm_apply = 'Kandidatuoti į darbą „%s“?'
     }
 }

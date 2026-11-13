@@ -10,7 +10,11 @@ return {
         job_doesnt_exist = 'Mängija: %s | Töökoht: %s | pole Config.Jobs olemas'
     },
     notify = {
-        no_cash = 'Sul pole piisavalt raha kaasas, vajad %s sularaha'
+        no_cash = 'Sul pole piisavalt raha kaasas, vajad %s sularaha',
+        too_far = "Oled raekojast liiga kaugel.",
+        inventory_full = "Su inventar on täis.",
+        license_unavailable = "See litsents pole saadaval.",
+        job_applied = "Esitasid tööle edukalt avalduse.",
     },
     menus = {
         license_cost = 'Hind: %s $',
@@ -21,5 +25,9 @@ return {
         id_card = 'ID-kaart',
         id_card_desc = 'Hangi oma ID-kaart',
         job_center_desc = 'Saadaolevad töökohad',
+        purchase = 'Osta',
+        apply = 'Kandideeri',
+        confirm_purchase = 'Osta %s hinnaga $%s?',
+        confirm_apply = 'Kandideeri töökohale %s?'
     }
 }
