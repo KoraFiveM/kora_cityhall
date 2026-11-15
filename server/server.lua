@@ -79,7 +79,7 @@ local function giveStarterItems()
     end)
     starterClaims[src] = nil
     if not ok or not saved then
-        print(('[qb-cityhall] Starter item claim failed for %s: %s'):format(src, tostring(err or saveErr)))
+        Kora.logging.error('starter_items.claim_failed', 'Starter item claim failed', { playerId = src, error = tostring(err or saveErr) })
     end
 end
 
