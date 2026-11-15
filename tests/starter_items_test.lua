@@ -13,10 +13,15 @@ local onAdd, onSet, failSet, failSave
 local warnings = 0
 local saves = 0
 local realPrint = print
-print = function(message)
-    if tostring(message):find('Starter item claim failed', 1, true) then warnings = warnings + 1
-    else realPrint(message) end
-end
+local lastLog
+Kora = { logging = {
+    error = function(event, message, fields)
+        lastLog = { level = 'error', event = event, message = message, fields = fields }
+        if event == 'starter_items.claim_failed' then warnings = warnings + 1 end
+        return true
+    end,
+} }
+print = function() error('server.lua must log through Kora.logging, not print') end
 RegisterNetEvent = function(name, handler) events[name] = handler end
 local starters = {
     phone = { item = 'phone', amount = 9 },
@@ -125,6 +130,8 @@ reset({ phone = true })
 failures.phone = 'error'
 claim()
 assert(players[1].metadata.starterItems.phone == false and warnings == 1, 'ambiguous export errors must not reopen a token')
+assert(lastLog.level == 'error' and lastLog.event == 'starter_items.claim_failed', 'claim failure emits the stable error event')
+assert(type(lastLog.fields) == 'table' and tostring(lastLog.fields.error):find('inventory export failed', 1, true), 'logger fields carry the error')
 players[1].metadata.starterItems.id_card = true
 failures.phone = nil
 claim()
