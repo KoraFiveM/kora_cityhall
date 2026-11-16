@@ -1,0 +1,33 @@
+return {
+    asserts = {
+        job_doesnt_exist = "بازیکن: %s: %s در Config وجود ندارد. شغل های شغلی",
+        src = "منبع: Nil",
+        key = "بازیکن: %s",
+        license_config_missing = "Player: %s | License configuration is missing for the given license | %s",
+        cityhall = "بازیکن: %s | Key set for Config خانه ها وجود ندارند",
+        license = "بازیکن: %s",
+        no_licenses = "بازیکن: %s هیچ مجوز پیکربندی شده برای این شهر",
+        cityhall_too_far = "بازیکن: %s بازیکن بسیار دور از شهرستان است",
+    },
+    menus = {
+        license_cost = "قیمت: %s",
+        id_card = "کارت شناسایی کارت",
+        city_hall = "شهر هال",
+        confirm_apply = "درخواست شغل %s",
+        city_hall_icon = "دانلود بازی The Fa-City",
+        confirm_purchase = "خرید %s برای $%s",
+        apply_job = "درخواست برای این شغل",
+        purchase = "خرید خرید",
+        job_center_desc = "شغل های موجود",
+        job_center = "مرکز کار",
+        id_card_desc = "کارت شناسایی خود را دریافت کنید",
+        apply = "درخواست",
+    },
+    notify = {
+        license_unavailable = "این مجوز در دسترس نیست.",
+        job_applied = "شما با موفقیت برای کار درخواست کرده اید.",
+        no_cash = "شما پول کافی برای شما ندارید، به پول نقد %s نیاز دارید.",
+        inventory_full = "موجودی شما پر است.",
+        too_far = "شما خیلی دور از تالار شهر هستید.",
+    },
+}

@@ -1,0 +1,33 @@
+return {
+    asserts = {
+        job_doesnt_exist = "Player: %s | Job: %s | does not exist in Config.Jobs",
+        src = "Vir nil",
+        key = "Igralec: %s",
+        license_config_missing = "Player: %s | License configuration is missing for the given license | %s",
+        cityhall = "Igralec: %s  Cityhalls ne obstaja",
+        license = "Igralec: %s",
+        no_licenses = "Igralec: %s",
+        cityhall_too_far = "Igralec: %s",
+    },
+    menus = {
+        license_cost = "Cena: $ %s",
+        id_card = "Identifikacijska kartica",
+        city_hall = "Mestna hiša",
+        confirm_apply = "Prijaviti za %s delo?",
+        city_hall_icon = "fas fa- city",
+        confirm_purchase = "Nakup %s za $%s?",
+        apply_job = "Prijavi se na to opravilo",
+        purchase = "Nakup",
+        job_center_desc = "Razpoložljiva opravila",
+        job_center = "Center opravil",
+        id_card_desc = "Vzemite osebno izkaznico.",
+        apply = "Uveljavi",
+    },
+    notify = {
+        license_unavailable = "Ta licenca ni na voljo.",
+        job_applied = "Uspešno ste se prijavili.",
+        no_cash = "Nimate dovolj denarja pri sebi, potrebujete %s gotovina",
+        inventory_full = "Inventar je poln.",
+        too_far = "Predaleč od mestne hiše si.",
+    },
+}

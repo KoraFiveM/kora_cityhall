@@ -1,0 +1,33 @@
+return {
+    asserts = {
+        job_doesnt_exist = "Player: %s | Job: %s | does not exist in Config.Jobs",
+        src = "Avots ir Nil",
+        key = "Spēlētājs: %s",
+        license_config_missing = "Player: %s | License configuration is missing for the given license | %s",
+        cityhall = "Spēlētājs: %s . Cityhalls neeksistē",
+        license = "Spēlētājs: %s",
+        no_licenses = "Spēlētājs: %s",
+        cityhall_too_far = "Spēlētājs: %s",
+    },
+    menus = {
+        license_cost = "Cena: $ %s",
+        id_card = "Identitātes karte",
+        city_hall = "Pilsētas dome",
+        confirm_apply = "Piesakies %s darbam?",
+        city_hall_icon = "fas fa-city",
+        confirm_purchase = "Iegādāties %s $%s?",
+        apply_job = "Pieteikties šim darbam",
+        purchase = "Iepirkums",
+        job_center_desc = "Pieejamie darbi",
+        job_center = "Darba centrs",
+        id_card_desc = "Saņemiet savu identifikācijas karti",
+        apply = "Pielietot",
+    },
+    notify = {
+        license_unavailable = "Šī apliecība nav pieejama.",
+        job_applied = "Jūs esat veiksmīgi pieteicies darbam.",
+        no_cash = "Jums nav pietiekami daudz naudas par jums, jums ir nepieciešams %s naudas",
+        inventory_full = "Jūsu inventārs ir pilns.",
+        too_far = "Tu esi pārāk tālu no rātsnama.",
+    },
+}
