@@ -1,0 +1,33 @@
+return {
+    asserts = {
+        job_doesnt_exist = "Player: %s | Job: %s | does not exist in Config.Jobs",
+        src = "Ang Pinagmumulan ay Nil",
+        key = "Manlalaro: %sicho Cityhall key ay nil",
+        license_config_missing = "Player: %sifician License configuration ay nawawala para sa ibinigay na license fealation na %s",
+        cityhall = "Manlalaro: %sisensiya Key na itinakda para sa Config. Ang mga Cityhall ay umiiral",
+        license = "Player: %s | License is nil",
+        no_licenses = "Manlalaro: %sicho Walang lisensiyang isinaayos para sa lungsod na ito",
+        cityhall_too_far = "Player: %sicho Player ay masyadong malayo sa cityhall",
+    },
+    menus = {
+        license_cost = "Halaga: $ %s",
+        id_card = "ID Card",
+        city_hall = "City Hall",
+        confirm_apply = "Apply for the %s job?",
+        city_hall_icon = "fas fa-city",
+        confirm_purchase = "Purchase %s para sa $%s?",
+        apply_job = "Mag - aplay para sa trabahong ito",
+        purchase = "Purchase",
+        job_center_desc = "Makukuhang mga Trabaho",
+        job_center = "Sentro ng Trabaho",
+        id_card_desc = "Kunin ang ID Card",
+        apply = "Pagkakapit",
+    },
+    notify = {
+        license_unavailable = "Walang lisensiya.",
+        job_applied = "Matagumpay kang nag - aplay para sa trabaho.",
+        no_cash = "Wala kang sapat na pera para sa iyo, kailangan mo ng %s cash",
+        inventory_full = "Punô ang imbentaryo mo.",
+        too_far = "Napakalayo mo sa City Hall.",
+    },
+}

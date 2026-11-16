@@ -1,0 +1,33 @@
+return {
+    asserts = {
+        job_doesnt_exist = "Player: %s | Job: %s | does not exist in Config.Jobs",
+        src = "Source Is Nil",
+        key = "Player: %s | Cityhall key is nil",
+        license_config_missing = "Player: %s | License configuration is missing for the given license | %s",
+        cityhall = "Player: %s | Key set for Config.Cityhalls doesnt exist",
+        license = "Player: %s | License is nil",
+        no_licenses = "Player: %s | No licenses configured for this cityhall",
+        cityhall_too_far = "Player: %s | Player is too far from the cityhall",
+    },
+    menus = {
+        license_cost = "Price: $ %s",
+        id_card = "ID Card",
+        city_hall = "City Hall",
+        confirm_apply = "Apply for the %s job?",
+        city_hall_icon = "fas fa-city",
+        confirm_purchase = "Purchase %s for $%s?",
+        apply_job = "Apply for this job",
+        purchase = "Purchase",
+        job_center_desc = "Available Jobs",
+        job_center = "Job Center",
+        id_card_desc = "Get your ID Card",
+        apply = "Apply",
+    },
+    notify = {
+        license_unavailable = "This licence is unavailable.",
+        job_applied = "You have successfully applied for the job.",
+        no_cash = "You don't have enough money on you, you need %s cash",
+        inventory_full = "Your inventory is full.",
+        too_far = "You are too far from the City Hall.",
+    },
+}

@@ -1,0 +1,33 @@
+return {
+    asserts = {
+        job_doesnt_exist = "Player: %s | Job: %s | does not exist in Config.Jobs",
+        src = "Джерело Is Nil",
+        key = "Player: %s | Cityhall key is nil",
+        license_config_missing = "Player: %s | License configuration is missing for the given license | %s",
+        cityhall = "Player: %s | Key set for Config.Cityhalls doesnt exist",
+        license = "Player: %s | License is nil",
+        no_licenses = "Гравець: %s Немає ліцензій, налаштованих для цього міста",
+        cityhall_too_far = "Гравець: %s Player занадто далеко від міста",
+    },
+    menus = {
+        license_cost = "Ціна: $ %s",
+        id_card = "Карта сайту",
+        city_hall = "Міський зал",
+        confirm_apply = "Застосувати за роботу %s?",
+        city_hall_icon = "фасади",
+        confirm_purchase = "Купівля %s за $%s?",
+        apply_job = "Застосувати цю роботу",
+        purchase = "Закупівля",
+        job_center_desc = "Доступні вакансії",
+        job_center = "Центр зайнятості",
+        id_card_desc = "Отримати картку",
+        apply = "Застосувати",
+    },
+    notify = {
+        license_unavailable = "Ця ліцензія недоступна.",
+        job_applied = "Ви успішно надали заявку на роботу.",
+        no_cash = "Вам не вистачає грошей на вас, вам потрібно %s готівкою",
+        inventory_full = "Ваш інвентар завершено.",
+        too_far = "Ви дуже далеко від міської зали.",
+    },
+}
