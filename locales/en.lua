@@ -3,11 +3,11 @@ return {
         src = 'Source Is Nil',
         key = 'Player: %s | Cityhall key is nil',
         license = 'Player: %s | License is nil',
-        cityhall = 'Player: %s | Key set for Config.Cityhalls doesnt exist',
+        cityhall = 'Player: %s | Key set for Config.Cityhalls does not exist',
         no_licenses = 'Player: %s | No licenses configured for this cityhall',
         license_config_missing = 'Player: %s | License configuration is missing for the given license | %s',
         cityhall_too_far = 'Player: %s | Player is too far from the cityhall',
-        job_doesnt_exist = 'Player: %s | Job: %s | does not exist in Config.Jobs'
+        job_doesnt_exist = 'Player: %s | Job: %s | does not exist in Config.AvailableJobs'
     },
     notify = {
         no_cash = 'You don\'t have enough money on you, you need %s cash',
