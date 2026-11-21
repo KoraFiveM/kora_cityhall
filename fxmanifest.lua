@@ -5,7 +5,7 @@ provide 'qb-cityhall'
 use_fxv2_oal 'yes'
 author 'Kora'
 description 'Allows players to purchase id cards and licenses or change their job'
-version '0.2.1'
+version '0.2.2'
 
 dependency 'kora_lib'
 dependency 'kora_core'
